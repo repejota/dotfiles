@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/raul/Projects/dotfiles/.vim'
+let g:netrw_dirhist_2='/home/raul/Projects/web4linux.org/input'
+let g:netrw_dirhist_3='/home/raul/Projects/books/aprendego/input'
+let g:netrw_dirhist_4='/home/raul/Projects/ifttt.js/lib'
+let g:netrw_dirhist_5='/home/raul/Projects/ifttt.js/examples'
+let g:netrw_dirhist_6='/home/raul/.offlineimap'
