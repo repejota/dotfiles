@@ -67,19 +67,15 @@ if [ $EUID = "0" ]; then
   C_CL_PAREN="$YELLOW"
 fi
 
-
-source ~/Projects/dotfiles.osx/git-prompt.sh
-
-#################
-# Assign to PS1 #
-#################
-PS1="$XTITLE""$C_USER""\u""$C_AMP""@""\
+######################
+# Assign to PSGLOBAL #
+######################
+PSGLOBAL="$XTITLE""$C_USER""\u""$C_AMP""@""\
 $C_HOST""\h""$C_COLON"":\
-$C_PWD""\w""$C_GT"" $(__git_ps1) >""$NOTHING "
+$C_PWD""\w""$C_GT"">""$NOTHING "
 
-export PS1
+export PSGLOBAL
+source ~/Projects/dotfiles.osx/gitbash.sh
 
 # HOME/bin Path
 export PATH="$HOME/bin:$PATH"
-
-
