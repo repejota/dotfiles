@@ -1,0 +1,2 @@
+#!/bin/sh
+mutt -F ~/Projects/dotfiles.osx/.muttrc_raul_web4linux_org

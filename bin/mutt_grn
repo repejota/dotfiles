@@ -1,0 +1,2 @@
+#!/bin/sh
+mutt -F ~/Projects/dotfiles.osx/.muttrc_raulperez_grn_es
