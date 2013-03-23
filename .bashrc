@@ -70,9 +70,7 @@ fi
 ######################
 # Assign to PSGLOBAL #
 ######################
-PSGLOBAL="$XTITLE""$C_USER""\u""$C_AMP""@""\
-$C_HOST""\h""$C_COLON"":\
-$C_PWD""\w""$C_GT"">""$NOTHING "
+PSGLOBAL="$XTITLE""$C_USER""\u""$C_AMP""@""$C_HOST""\h""$C_COLON"":$C_PWD""\w""$C_GT"">""$NOTHING "
 
 export PSGLOBAL
 source ~/Projects/dotfiles.osx/gitbash.sh
