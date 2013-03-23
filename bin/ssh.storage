@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh trovit.com@storage-01.backend

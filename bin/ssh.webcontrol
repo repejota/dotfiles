@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh trovit.com@webcontrol.backend
