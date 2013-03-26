@@ -18,9 +18,13 @@ export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-
 alias ls='ls -G'
 alias vim="mvim -v"
+
+# Add Git oompletion
+if [ -f ~/Projects/dotfiles.osx/.git-completion.bash ]; then
+    . ~/Projects/dotfiles.osx/.git-completion.bash
+fi
 
 #################
 # Prompt Colors #
