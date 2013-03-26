@@ -20,9 +20,6 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 
 alias ls='ls -G'
-#alias dir='ls --color=auto --format=vertical'
-#alias ls='ls --color'
-#alias tmux="tmux -2"
 alias vim="mvim -v"
 
 #################
