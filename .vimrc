@@ -1,4 +1,3 @@
-" Settings
 set nocompatible
 set encoding=utf-8
 set ffs=unix,dos,mac
@@ -16,7 +15,6 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-
 
 " Pathogen
 call pathogen#infect()
@@ -44,16 +42,15 @@ set ruler                   " Line numbers and column the cursor is on
 set number                  " Show line numbering
 set numberwidth=1           " Use 1 col + 1 space for numbers
 set autoindent
-
 set history=1000
 set cursorline
 
-" Clipboard
-if has("unnamedplus")
-  set clipboard=unnamedplus
-elseif has("clipboard")
-  set clipboard=unnamed
-endif
+set noerrorbells                " No beeps
+set backspace=indent,eol,start  " Makes backspace key more powerful.
+set showcmd                     " Show me what I'm typing
+set showmode                    " Show current mode.
+set noswapfile                  " Don't use swapfile
+set nobackup                    " Don't create annoying backup files
 
 " Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
@@ -66,3 +63,5 @@ augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+command Cp CtrlP
