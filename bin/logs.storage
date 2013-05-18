@@ -1,0 +1,3 @@
+#!/bin/sh
+NOW=$(date +"%Y%m%d%H")
+ssh trovit.com@storage-01.backend tail -F /var/local/backup/logs/apache/error-$NOW.log

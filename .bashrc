@@ -20,6 +20,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 alias ls='ls -G'
 alias vim="mvim -v"
+alias grep="grep --color=always"
 
 # Add Git oompletion
 if [ -f ~/Projects/dotfiles.osx/.git-completion.bash ]; then
@@ -78,3 +79,7 @@ source ~/Projects/dotfiles.osx/gitbash.sh
 
 # HOME/bin Path
 export PATH="$HOME/bin:$PATH"
+
+# Android
+export PATH=${PATH}:$HOME/Src/adt/sdk/platform-tools:$HOME/Src/adt/sdk/tools
+

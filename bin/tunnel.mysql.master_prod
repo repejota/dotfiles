@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh -f trovit.com@webcontrol.backend -L 3306:master.web.mysql:3306 -N
