@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+import argparse
+from sh import git
+
+parser = argparse.ArgumentParser(description='Git wrapper.')
+parser.add_argument('branch')
+args = parser.parse_args()
+
+

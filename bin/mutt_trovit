@@ -1,0 +1,2 @@
+#!/bin/sh
+mutt -F ~/Projects/dotfiles.osx/.muttrc_rperez_trovit

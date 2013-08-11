@@ -12,7 +12,7 @@ export HISTCONTROL=ignoredups
 shopt -s checkwinsize
 
 # enable color support of ls and also add handy aliases
-export TERM=xterm-256color
+export TERM=screen-256color
 # eval `dircolors ~/.dircolors`
 
 export CLICOLOR=1
@@ -77,9 +77,11 @@ PSGLOBAL="$XTITLE""$C_USER""\u""$C_AMP""@""$C_HOST""\h""$C_COLON"":$C_PWD""\w""$
 export PSGLOBAL
 source ~/Projects/dotfiles.osx/gitbash.sh
 
+# Dev Path
+export PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin
 # HOME/bin Path
 export PATH="$HOME/bin:$PATH"
 
 # Android
-export PATH=${PATH}:$HOME/Src/adt/sdk/platform-tools:$HOME/Src/adt/sdk/tools
+export PATH=${PATH}:$HOME/Src/adt-bundle-mac-x86_64-20130514/sdk/platform-tools:$HOME/Src/adt-bundle-mac-x86_64-20130514/sdk/tools
 

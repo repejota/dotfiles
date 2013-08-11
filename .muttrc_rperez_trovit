@@ -1,19 +1,19 @@
 source ~/.muttrc
 
 # Change the following six lines to match your Gmail account details
-set imap_user = "raulperez@grn.es"
-set smtp_url = "smtp://raulperez@grn.es@mail.grn.es:587/"
-set from = "raulperez@grn.es"
+set imap_user = "rperez@trovit.com"
+set smtp_url = "smtp://rperez@smtp.trovit.com:587/"
+set from = "rperez@trovit.com"
 set realname = "Raül Pérez"
 
 # Change the following line to a different editor you prefer.
 set editor = "vim"
 
 # Basic config, you can leave this as is
-set folder = "imaps://mail.grn.es:993"
+set folder = "imaps://imap.trovit.com:993"
 set spoolfile = "+INBOX"
 set imap_check_subscribed
-set hostname = grn.es
+set hostname = trovit.com
 set mail_check = 120
 set timeout = 300
 set imap_keepalive = 300

@@ -65,3 +65,4 @@ augroup markdown
 augroup END
 
 command Cp CtrlP
+command W Hupload
