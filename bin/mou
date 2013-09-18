@@ -1,0 +1,2 @@
+#!/bin/sh
+Open /Applications/Mou.app $1

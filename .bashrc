@@ -81,7 +81,10 @@ source ~/Projects/dotfiles.osx/gitbash.sh
 export PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin
 # HOME/bin Path
 export PATH="$HOME/bin:$PATH"
-
+# Cabal ( Haskell packages ) Path
+export PATH="~/.cabal/bin:$PATH"
+# Brew
+export PATH="/usr/local/bin:$PATH"
 # Android
 export PATH=${PATH}:$HOME/Src/adt-bundle-mac-x86_64-20130514/sdk/platform-tools:$HOME/Src/adt-bundle-mac-x86_64-20130514/sdk/tools
 
