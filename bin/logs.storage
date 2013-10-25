@@ -1,3 +1,4 @@
 #!/bin/sh
 NOW=$(date +"%Y%m%d%H")
-ssh trovit.com@storage-01.backend tail -F /var/local/backup/logs/apache/error-$NOW.log
+ssh trovit.com@apache.syslog.services tail -F /var/log/remote/apache/error-$NOW.log
+# grep -v 'Conversion' | grep -v 'ma.solr'

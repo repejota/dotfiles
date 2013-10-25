@@ -64,5 +64,13 @@ augroup markdown
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
+" Ruler at 78
+let &colorcolumn="80,".join(range(120,999),",")
+
+" Spell check colors
+hi clear SpellBad
+hi SpellBad ctermbg=darkred
+hi SpellRare ctermbg=darkred
+
 command Cp CtrlP
 command W Hupload

@@ -21,11 +21,11 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 alias ls='ls -G'
 alias vim="mvim -v"
 alias grep="grep --color=always"
+alias g="git"
 
 # Add Git oompletion
-if [ -f ~/Projects/dotfiles.osx/.git-completion.bash ]; then
-    . ~/Projects/dotfiles.osx/.git-completion.bash
-fi
+source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
+complete -o default -o nospace -F _git g
 
 #################
 # Prompt Colors #
@@ -86,5 +86,6 @@ export PATH="~/.cabal/bin:$PATH"
 # Brew
 export PATH="/usr/local/bin:$PATH"
 # Android
-export PATH=${PATH}:$HOME/Src/adt-bundle-mac-x86_64-20130514/sdk/platform-tools:$HOME/Src/adt-bundle-mac-x86_64-20130514/sdk/tools
-
+export PATH=${PATH}:$HOME/Src/adt-bundle-mac/sdk/platform-tools:$HOME/Src/adt-bundle-mac/sdk/tools
+# Ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
