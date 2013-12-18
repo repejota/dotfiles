@@ -22,6 +22,7 @@ alias ls='ls -G'
 alias vim="mvim -v"
 alias grep="grep --color=always"
 alias g="git"
+alias ssh="ssh -A"
 
 # Add Git oompletion
 source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
@@ -89,3 +90,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH=${PATH}:$HOME/Src/adt-bundle-mac/sdk/platform-tools:$HOME/Src/adt-bundle-mac/sdk/tools
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+# Golang
+export PATH="/Users/raulperez/Src/go/bin:$PATH"
+# Depot tools
+export PATH="$PATH:/Users/raulperez/Src/depot_tools"

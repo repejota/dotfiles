@@ -3,18 +3,36 @@ set encoding=utf-8
 set ffs=unix,dos,mac
 
 " Tabular information
-" I mostly use 4 spaces
-au BufRead,BufNewFile *.py  set ai sw=4 sts=4 et tw=72
-au BufRead,BufNewFile *.js  set ai sw=4 sts=4 et tw=72
-au BufRead,BufNewFile *.php  set ai sw=4 sts=4 et tw=72
-au BufRead,BufNewFile *.html set ai sw=4 sts=4 et tw=72
-au BufRead,BufNewFile *.json set ai sw=4 sts=4 et tw=72
-au BufNewFile *.py,*.js,*.php,*.html,*.json set fileformat=unix
-au! BufRead,BufNewFile *.json setfiletype json
+" 4 spaces
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+
+" File formats:
+"
+" *.md, *.markdown
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md setlocal filetype=ghmarkdown
+    au BufNewFile,BufRead *.markdown setlocal filetype=ghmarkdown
+augroup END
+" *.py
+au BufRead,BufNewFile *.py  set ai sw=4 sts=4 et tw=72
+au BufNewFile *.py set fileformat=unix
+" *.js
+au BufRead,BufNewFile *.js  set ai sw=4 sts=4 et tw=72
+au BufNewFile *.js set fileformat=unix
+" *.php
+au BufRead,BufNewFile *.php  set ai sw=4 sts=4 et tw=72
+au BufNewFile *.php set fileformat=unix
+" *.html
+au BufRead,BufNewFile *.html set ai sw=4 sts=4 et tw=72
+au BufNewFile *.html set fileformat=unix
+" *.json
+au! BufRead,BufNewFile *.json setfiletype json
+au BufRead,BufNewFile *.json set ai sw=4 sts=4 et tw=72
+au BufNewFile *.py set fileformat=unix
 
 " Pathogen
 call pathogen#infect()
@@ -24,8 +42,11 @@ call pathogen#helptags()
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
 
-" Mouse support
+" Syntax on
 syntax on
+colorscheme Tomorrow-Night
+
+" Mouse support
 set mouse=a
 set mousehide
 
@@ -41,36 +62,35 @@ set lazyredraw              " Don't repaint when scripts are running
 set ruler                   " Line numbers and column the cursor is on
 set number                  " Show line numbering
 set numberwidth=1           " Use 1 col + 1 space for numbers
-set autoindent
+" set autoindent
 set history=1000
 set cursorline
 
+set vb t_vb=                    " No flash bell
 set noerrorbells                " No beeps
-set backspace=indent,eol,start  " Makes backspace key more powerful.
+set backspace=indent,eol,start
 set showcmd                     " Show me what I'm typing
 set showmode                    " Show current mode.
 set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
+set laststatus=2                " Always show status bar
 
 " Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Theme
-colorscheme Tomorrow-Night
-
-" Markdown
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
-
 " Ruler at 78
 let &colorcolumn="80,".join(range(120,999),",")
 
-" Spell check colors
-hi clear SpellBad
-hi SpellBad ctermbg=darkred
-hi SpellRare ctermbg=darkred
+" Keyboard mapping
 
-command Cp CtrlP
-command W Hupload
+nnoremap <Space> :noh<return>    " Press <escape> to turn off highlighting
+                               " and clear any message already displayed.
+
+" Leader mapping
+"
+" example:
+"   :map ,A  oanother line<Esc>
+"
+let mapleader = ","
+" ,ap
+:map ,p :CtrlP<cr>
