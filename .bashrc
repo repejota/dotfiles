@@ -92,5 +92,7 @@ export PATH=${PATH}:$HOME/Src/adt-bundle-mac/sdk/platform-tools:$HOME/Src/adt-bu
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 # Golang
 export PATH="/Users/raulperez/Src/go/bin:$PATH"
+export GOPATH=/usr/local/lib/go
 # Depot tools
 export PATH="$PATH:/Users/raulperez/Src/depot_tools"
+

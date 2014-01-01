@@ -2,12 +2,30 @@ set nocompatible
 set encoding=utf-8
 set ffs=unix,dos,mac
 
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
 " Tabular information
 " 4 spaces
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+
+" Better Completion
+set complete=.,w,b,u,t
+set completeopt=longest,menuone,preview
+
+" Cursorline
+" Only show cursorline in the current window and in normal mode.
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
 
 " File formats:
 "
@@ -62,9 +80,10 @@ set lazyredraw              " Don't repaint when scripts are running
 set ruler                   " Line numbers and column the cursor is on
 set number                  " Show line numbering
 set numberwidth=1           " Use 1 col + 1 space for numbers
-" set autoindent
+set autoindent
 set history=1000
 set cursorline
+set showbreak=↝\ \ \ 
 
 set vb t_vb=                    " No flash bell
 set noerrorbells                " No beeps
@@ -81,10 +100,23 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Ruler at 78
 let &colorcolumn="80,".join(range(120,999),",")
 
-" Keyboard mapping
+" Make sure Vim returns to the same line when you reopen a file.
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
 
-nnoremap <Space> :noh<return>    " Press <escape> to turn off highlighting
-                               " and clear any message already displayed.
+" Keyboard mapping
+nnoremap Q <nop>                " Prevent Ex mode
+nnoremap <Space> :noh<return>   " Press <Space> to turn off
+                                " highlighting
+                                " and clear any message already
+                                " displayed.
+
+
 
 " Leader mapping
 "
@@ -92,5 +124,14 @@ nnoremap <Space> :noh<return>    " Press <escape> to turn off highlighting
 "   :map ,A  oanother line<Esc>
 "
 let mapleader = ","
-" ,ap
+" ,p
 :map ,p :CtrlP<cr>
+
+" Toggle line numbers
+nnoremap <leader>n :setlocal number!<cr>
+
+" Clean trailing whitespace
+nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
+" Toggle invisible characters
+nnoremap <leader>i :set list!<cr>
