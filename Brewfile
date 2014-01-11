@@ -28,6 +28,7 @@ install automake
 install sqlite
 install bash-completion
 install tree
+install nmap
 
 tap homebrew/versions
 
