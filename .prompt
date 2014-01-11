@@ -1,3 +1,6 @@
+PSGLOBAL="$XTITLE""$C_USER""\u""$C_AMP""@""$C_HOST""\h""$C_COLON"":$C_PWD""\w""$C_GT"">""$NOTHING "
+export PSGLOBAL
+
 function _git_prompt() {
     local git_status="`git status -unormal 2>&1`"
     if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
@@ -19,7 +22,10 @@ function _git_prompt() {
         echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
     fi
 }
+
 function _prompt_command() {
     PS1="`_git_prompt`"$PSGLOBAL
 }
+
 PROMPT_COMMAND=_prompt_command
+export PROMPT_COMMAND

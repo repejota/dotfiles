@@ -1,0 +1,53 @@
+[user]
+	name = Raül Pérez
+	email = rperez@trovit.com
+[color]
+	ui = auto
+[advice]
+	pushNonFastForward = false
+	statusHints = false
+[core]
+	whitespace = trailing-space,space-before-tab
+	editor = /usr/bin/vim
+[branch]
+	autosetupmerge = true
+[rerere]
+	enabled = true
+[alias]
+    # show aliases
+    alias = "!git config -l | grep alias | cut -c 7-"
+
+    br = branch -v
+    ci = commit -v
+    co = checkout
+    dc = diff --word-diff=color --cached
+    df = diff --word-diff=color
+    dt = diff-tree --no-commit-id --name-only -r
+    st = "status -sb"
+    ls = log --graph --pretty=format:'%Cred%h%Creset %Cgreen%cr%Creset %Cblue%an%Creset%C(yellow)%d%Creset %s'
+    lt = !git describe --tags `git rev-list --tags --max-count=1`
+
+    # pull and rebase
+    purr = pull --rebase
+
+    # rebase and join last two commits
+    j2 = rebase --interactive HEAD~2
+
+    # log file history
+    # Shows logs and diffs for a single file
+    filelog = log -u
+
+    # Oldest
+    # Start of the branch ( sha id )
+    oldest-ancestor = !zsh -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+    bdiff = !git diff `git oldest-ancestor`..
+    blog = !git log `git oldest-ancestor`..
+    bfiles = !git diff --name-only `git oldest-ancestor`..
+
+    theirs = checkout --theirs
+    ours = checkout --ours
+
+[push]
+	default = simple
+[merge]
+	tool = vimdiff

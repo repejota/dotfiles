@@ -50,7 +50,7 @@ au BufNewFile *.html set fileformat=unix
 " *.json
 au! BufRead,BufNewFile *.json setfiletype json
 au BufRead,BufNewFile *.json set ai sw=4 sts=4 et tw=72
-au BufNewFile *.py set fileformat=unix
+au BufNewFile *.json set fileformat=unix
 
 " Pathogen
 call pathogen#infect()
@@ -68,23 +68,27 @@ colorscheme Tomorrow-Night
 set mouse=a
 set mousehide
 
+"
 " Searching and Patterns
-set hlsearch                " Highlight matches to the search
+"
 set showmatch
-set ignorecase              " Search is case insensitive
-set smartcase               " Search case sensitive if caps on
-set incsearch               " Show best match so far
+set hlsearch                    " Highlight matches to the search
+set ignorecase                  " Search is case insensitive
+set smartcase                   " Search case sensitive if caps on
+set incsearch                   " Show best match so far
+" nnoremap <space> :noh<return> " Press <space> to clear highlighted results.
 
+"
 " Display
-set lazyredraw              " Don't repaint when scripts are running
-set ruler                   " Line numbers and column the cursor is on
-set number                  " Show line numbering
-set numberwidth=1           " Use 1 col + 1 space for numbers
+"
 set autoindent
 set history=1000
-set cursorline
-set showbreak=↝\ \ \ 
-
+set lazyredraw                  " Don't repaint when scripts are running
+set ruler                       " Line numbers and column the cursor is on
+set number                      " Show line numbering
+set numberwidth=1               " Use 1 col + 1 space for numbers
+set cursorline                  " Highlight the current line
+set showbreak=↝\ \ \            " Show ↝ if line wraps
 set vb t_vb=                    " No flash bell
 set noerrorbells                " No beeps
 set backspace=indent,eol,start
@@ -94,10 +98,10 @@ set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set laststatus=2                " Always show status bar
 
-" Remove trailing whitespaces
+" Remove trailing whitespaces at save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Ruler at 78
+" Ruler at 78, 120 and 999 columns
 let &colorcolumn="80,".join(range(120,999),",")
 
 " Make sure Vim returns to the same line when you reopen a file.
@@ -109,29 +113,28 @@ augroup line_return
         \ endif
 augroup END
 
-" Keyboard mapping
-nnoremap Q <nop>                " Prevent Ex mode
-nnoremap <Space> :noh<return>   " Press <Space> to turn off
-                                " highlighting
-                                " and clear any message already
-                                " displayed.
-
-
-
 " Leader mapping
-"
-" example:
-"   :map ,A  oanother line<Esc>
-"
 let mapleader = ","
-" ,p
-:map ,p :CtrlP<cr>
 
-" Toggle line numbers
+" ,p calls ControlP plugin
+:map ,p :CtrlP<cr>
+" ,n toggles line numbers
 nnoremap <leader>n :setlocal number!<cr>
+" ,i toggles invisible characters
+nnoremap <leader>i :set list!<cr>
+" ,tn go to next tab
+nnoremap <leader>tn :tabnext<cr>
+" ,tp go to previous tab
+nnoremap <leader>tp :tabprevious<cr>
+" ,tt create new tab
+nnoremap <leader>tt :tabnew!<cr>
+" ,tw close tab
+nnoremap <leader>tw :tabclose!<cr>
 
 " Clean trailing whitespace
-nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+" ( hidden as we do the same on save )
+" nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
-" Toggle invisible characters
-nnoremap <leader>i :set list!<cr>
+" Folding
+vmap <space> zf
+nmap <space> za
