@@ -3,11 +3,13 @@
 function bootstrap() {
     rsync --exclude ".git/" \
           --exclude ".DS_Store" \
+          --exclude "Brewfile" \
           --exclude "bootstrap.sh" \
           --exclude "README.md" \
           --exclude "LICENSE.txt" \
-          -av --no-perms . ~
-    source ~/.bash_profile
+          -av
+          --no-perms . ~
+    source ~/.bashrc
 }
 # Check for --force/-f argument
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
