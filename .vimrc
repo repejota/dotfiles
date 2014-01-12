@@ -62,7 +62,8 @@ filetype plugin indent on
 
 " Syntax on
 syntax on
-colorscheme Tomorrow-Night
+set t_Co=256
+colorscheme slate
 
 " Mouse support
 set mouse=a

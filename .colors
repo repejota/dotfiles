@@ -39,4 +39,4 @@ C_GT="$NOTHING"
 #################
 source $(brew --prefix)/etc/grc.bashrc;
 
-
+source ~/Projects/dotfiles.osx/colors/base16-shell/base16-default.dark.sh
