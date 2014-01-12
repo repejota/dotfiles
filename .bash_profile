@@ -2,8 +2,10 @@
 [ -z "$PS1" ] && return
 
 # enable color support of ls and also add handy aliases
-TERM=screen-256color
+TERM=xterm-256color
 export TERM
+# Equivalent to 'ls -G' ( we have this one too as a alias )
+export CLICOLOR="true"
 
 # Use custom INPUTRC
 INPUTRC=~/.inputrc
@@ -14,7 +16,7 @@ export INPUTRC
 # * ~/.colors defines common colors for the console.
 # * ~/.prompt sets a prompt with git support.
 # * ~/.aliases setups custom command aliases.
-for file in ~/.{path,colors,prompt,aliases}; do
+for file in ~/.{path,colors,lscolors,prompt,aliases}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file

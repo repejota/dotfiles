@@ -64,7 +64,9 @@ filetype plugin indent on
 " Syntax on
 syntax on
 set t_Co=256
-colorscheme slate
+let base16colorspace=256
+set background=dark
+colorscheme base16-default
 
 " Mouse support
 set mouse=a

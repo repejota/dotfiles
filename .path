@@ -23,7 +23,11 @@ PATH="/usr/local/opt/ruby/bin:$PATH"
 # Golang. http://golang.org/
 PATH="~/Src/go/bin:$PATH"
 GOPATH="/usr/local/lib/go"
-
 export PATH
 export GOPATH
+
+# Android
+export ANDROID_PROJECTS_HOME=~/Projects
+export ANDROID_DEFAULT_PKG=com.repejota
+
 
