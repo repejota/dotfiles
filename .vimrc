@@ -57,7 +57,8 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " Status line
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+" set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+
 filetype plugin indent on
 
 " Syntax on
@@ -139,3 +140,14 @@ nnoremap <leader>tw :tabclose!<cr>
 " Folding
 vmap <space> zf
 nmap <space> za
+
+" Airline configuration
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "base16"
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+let g:airline_linecolumn_prefix = '␤ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_readonly_symbol = '₩'
+let g:airline_paste_symbol = 'ρ'

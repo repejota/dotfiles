@@ -3,6 +3,7 @@
 function bootstrap() {
     rsync --exclude ".git/" \
           --exclude "colors/" \
+          --exclude "prompts/" \
           --exclude ".DS_Store" \
           --exclude "Brewfile" \
           --exclude "README.md" \
