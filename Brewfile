@@ -19,16 +19,18 @@ install wget --enable-iri
 install vim --override-system-vi
 
 # Install other useful binaries
-install tmux
-install git
-install links
-install android-sdk
-install autoconf
-install automake
-install sqlite
-install bash-completion
-install tree
-install nmap
+#
+install tmux                    # Terminal multiplexer
+install git                     # DCVS tool
+install links                   # Future's browser :P
+install android-sdk             # Android SDK
+install autoconf                # GNU build tools
+install automake                # GNU build tools
+install sqlite                  # Embeded database
+install bash-completion         # Bash completition
+install tree                    # Shows fs trees
+install nmap                    # Network scanner
+install grc                     # Terminal colofity tool
 
 tap homebrew/versions
 

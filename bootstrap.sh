@@ -2,13 +2,14 @@
 # create a boostrap function
 function bootstrap() {
     rsync --exclude ".git/" \
+          --exclude "colors/" \
           --exclude ".DS_Store" \
           --exclude "Brewfile" \
-          --exclude "bootstrap.sh" \
           --exclude "README.md" \
+          --exclude "TODO.md" \
+          --exclude "bootstrap.sh" \
           --exclude "LICENSE.txt" \
-          -av
-          --no-perms . ~
+          -av --no-perms . ~
     source ~/.bashrc
 }
 # Check for --force/-f argument

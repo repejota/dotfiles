@@ -34,3 +34,9 @@ C_COLON="$NOTHING"
 C_PWD="$WHITE"
 C_GT="$NOTHING"
 
+#################
+# grc Colors    #
+#################
+source $(brew --prefix)/etc/grc.bashrc;
+
+

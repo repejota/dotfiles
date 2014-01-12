@@ -1,4 +1,4 @@
 dotfiles.osx
 ============
 
-My dotfiles for OSX 
+My dotfiles for OSX
