@@ -7,7 +7,6 @@
 #
 export TERM=xterm-256color
 
-
 # Load custom .inputrc
 # Remaps keyboard and provides iTerm2 key shortcuts
 #
