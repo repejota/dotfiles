@@ -1,76 +1,82 @@
-# If not running interactively, don't do anything
+# If not running in interactive mode, don't do anything and stop loading
+# bash configuration settings.
+#
 [ -z "$PS1" ] && return
 
-# enable color support of ls and also add handy aliases
-TERM=xterm-256color
-export TERM
-# Equivalent to 'ls -G' ( we have this one too as a alias )
-export CLICOLOR="true"
+# Enable support for 256 colors on iTerm2
+#
+export TERM=xterm-256color
 
-# Use custom INPUTRC
-INPUTRC=~/.inputrc
-export INPUTRC
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.colors defines common colors for the console.
-# * ~/.prompt sets a prompt with git support.
-# * ~/.aliases setups custom command aliases.
+# Load custom .inputrc
+# Remaps keyboard and provides iTerm2 key shortcuts
+#
+export INPUTRC=~/.inputrc
+
+# Load custom partial configuration settings files:
+#   - ~/.path     : Used to extend user's `$PATH` for command locations.
+#   - ~/.lscolors : Setups ls color configuration by file & folder type.
+#   - ~/.colors   : Defines common colors for the console, shell, etc ...
+#   - ~/.prompt   : Sets a prompt with color & git support.
+#   - ~/.aliases  : Setups custom command aliases.
+#
 for file in ~/.{path,colors,lscolors,prompt,aliases}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
-# Larger bash history (allow 32³ entries; default is 500)
+# Bash command history
+# Setups a lager history (allow 32³ entries; default is 500)
+#
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
-# don't put duplicate lines in the history.
+# Don't allow duplicate lines in history.
 export HISTCONTROL=ignoredups
-# Make some commands not show up in history
+# Make some common commands not show up in history.
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
-# Prefer US English and use UTF-8
+# Sets language as US English and use UTF-8.
+#
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
 
-# Use vim as default editor on simple and visual terminals
-EDITOR=vim
-export EDITOR
-VISUAL=vim
-export VISUAL
+# Use vim as default editor.
+#
+export EDITOR=vim
+export VISUAL=vim
 
-# Don’t clear the screen after quitting a manual page
-export MANPAGER="less -X"
+# Use most as a pager so it can be colorized.
+#
+export PAGER="most -s"
 
-# enable coloured man pages
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-
-# make sure terminals wrap lines correctly after resizing them.
+# Make sure terminal wraps lines correctly on resizing.
+#
 shopt -s checkwinsize
 
-# Case-insensitive globbing (used in pathname expansion)
+# Case-insensitive globbing (used in pathname expansion).
+#
 shopt -s nocaseglob
 
-# small typos to be automatically corrected when changing directory
+# Small typos to be corrected when changing directory.
+#
 shopt -s cdspell
 
-# append to history rather than overwritting it
+# Append to history rather than overwritting it
+#
 shopt -s histappend
 
 # Enable some Bash 4 features when possible:
-# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
-# * Recursive globbing, e.g. `echo **/*.txt`
+#   - `autocd`, e.g. `**/qux` will `./foo/bar/baz/qux`
+#   - Recursive globbing, e.g. `echo **/*.txt`
+#
 for option in autocd globstar; do
-        shopt -s "$option" 2> /dev/null
+    shopt -s "$option" 2> /dev/null
 done
 
-# Bash completition. http://bash-completion.alioth.debian.org/
+# Bash completition.
+# http://bash-completion.alioth.debian.org/
+#
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
+

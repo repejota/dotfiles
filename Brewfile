@@ -31,6 +31,7 @@ install bash-completion         # Bash completition
 install tree                    # Shows fs trees
 install nmap                    # Network scanner
 install grc                     # Terminal colofity tool
+install most
 
 tap homebrew/versions
 
