@@ -1,12 +1,12 @@
-[submodule "colors/base16-iterm2"]
-	path = colors/base16-iterm2
+[submodule ".contrib/base16-iterm2"]
+	path = .contrib/base16-iterm2
 	url = https://github.com/chriskempson/base16-iterm2.git
-[submodule "colors/base16-shell"]
-	path = colors/base16-shell
+[submodule ".contrib/base16-shell"]
+	path = .contrib/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
-[submodule "prompts/powerline-shell"]
-	path = prompts/powerline-shell
-	url = https://github.com/milkbikis/powerline-shell
 [submodule ".vim/bundle/vundle"]
 	path = .vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule ".contrib/tomorrow-theme"]
+	path = .contrib/tomorrow-theme
+	url = https://github.com/chriskempson/tomorrow-theme.git
