@@ -1,10 +1,5 @@
-# ~/bin Path
-#
-# Useful for custom scripts, sometimes better than bash functions.
-# Just put any script ( python, ruby and php also works ) under ~/bin and
-# it will be available as a normal command.
-#
-PATH="~/bin:$PATH"
+# Base path
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Xcode & Developer tools.
 #
@@ -20,13 +15,6 @@ PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
 # Configures haskell PATH for binaries and installed packages.
 #
 PATH="~/.cabal/bin:$PATH"
-
-# Brew: The missing OSX package manager.
-#
-# http://brew.sh/
-# Configures homebrew PATH for binaries and installed packages executables.
-#
-PATH="/usr/local/bin:$PATH"
 
 # Ruby.
 #
@@ -44,6 +32,14 @@ PATH="~/Src/go/bin:$PATH"
 GOPATH="/usr/local/lib/go"
 export PATH
 export GOPATH
+
+# ~/.bin Path
+#
+# Useful for custom scripts, sometimes better than bash functions.
+# Just put any script ( python, ruby and php also works ) under ~/bin and
+# it will be available as a normal command.
+#
+PATH="~/bin:$PATH"
 
 # Android SDK defaults
 #

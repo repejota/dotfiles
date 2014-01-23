@@ -47,29 +47,29 @@ set skip-completed-text on
 
 # Instead of emacs keymap use vi keymap
 #
-set -o vi
-set editing-mode vi
-set keymap vi
+# set -o vi
+# set editing-mode vi
+# set keymap vi
 
 # Allow UTF-8 input and output, instead of
 # showing stuff like $'\0123\0456'
 #
-set input-meta on
-set output-meta on
-set convert-meta off
+# set input-meta on
+# set output-meta on
+# set convert-meta off
 
 # If you type any text and press Up/Down,
 # you can search your history for commands starting
 # with that text
 #
-"\e[B": history-search-forward
-"\e[A": history-search-backward
+# "\e[B": history-search-forward
+# "\e[A": history-search-backward
 
 # TODO
 # Use Alt Arrow keys to move along words
 #
-"\e[1;9D": backward-word
-"\e[1;9C": forward-word
+# "\e\e[C": forward-word    # Alt+right
+# "\e\e[D": backward-word    # Alt+left
 
 # TODO
 # Use Fn Arrow keys to move to the end / start of a line.

@@ -19,25 +19,13 @@ export INPUTRC=~/.inputrc
 #   - ~/.prompt   : Sets a prompt with color & git support.
 #   - ~/.aliases  : Setups custom command aliases.
 #
-for file in ~/.{path,colors,lscolors,prompt,aliases}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file"
+for file in ~/.{path,color,lscolors,prompt,aliases}; do
+    [ -r ".bash/$file" ] && [ -f ".bash/$file" ] && source ".bash/$file"
 done
 unset file
 
-# Bash command history
-# Setups a lager history (allow 32³ entries; default is 500)
-#
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-# Don't allow duplicate lines in history.
-export HISTCONTROL=ignoredups
-# Make some common commands not show up in history.
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
-
-# Sets language as US English and use UTF-8.
-#
-export LANG="en_US"
-export LC_ALL="en_US.UTF-8"
+source ~/.bash/path.bash
+source ~/.bash/history.bash
 
 # Use vim as default editor.
 #
@@ -72,10 +60,4 @@ for option in autocd globstar; do
     shopt -s "$option" 2> /dev/null
 done
 
-# Bash completition.
-# http://bash-completion.alioth.debian.org/
-#
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-
+source ~/.bash/completion.bash

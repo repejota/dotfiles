@@ -1,21 +1,24 @@
+" Use vim improved by default and do not try to be backwards compatible.
 set nocompatible
+
+" Use utf-8 by default.
+" Also prefered file format is unix with fallbacks to mac and dos.
 set encoding=utf-8
-set ffs=unix,dos,mac
+set ffs=unix,mac,dos
 
 " Time out on key codes but not mappings.
-" Basically this makes terminal Vim work sanely.
+" This makes terminal Vim work sanely.
 set notimeout
 set ttimeout
 set ttimeoutlen=10
 
-" Tabular information
-" 4 spaces
+" Tabular information : 4 spaces
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
-" Better Completion
+" Better completion
 set complete=.,w,b,u,t
 set completeopt=longest,menuone,preview
 
@@ -27,8 +30,11 @@ augroup cline
     au WinEnter,InsertLeave * set cursorline
 augroup END
 
-" File formats:
 "
+" File types
+"
+" Don't detect file type
+filetype off
 " *.md, *.markdown
 augroup markdown
     au!
@@ -36,39 +42,69 @@ augroup markdown
     au BufNewFile,BufRead *.markdown setlocal filetype=ghmarkdown
 augroup END
 " *.py
-au BufRead,BufNewFile *.py  set ai sw=4 sts=4 et tw=72
-au BufNewFile *.py set fileformat=unix
+augroup python
+    au BufRead,BufNewFile *.py  set ai sw=4 sts=4 et tw=72
+    au BufNewFile *.py set fileformat=unix
+augroup END
 " *.js
-au BufRead,BufNewFile *.js  set ai sw=4 sts=4 et tw=72
-au BufNewFile *.js set fileformat=unix
+augroup javascript
+    au BufRead,BufNewFile *.js  set ai sw=4 sts=4 et tw=72
+    au BufNewFile *.js set fileformat=unix
+augroup END
 " *.php
-au BufRead,BufNewFile *.php  set ai sw=4 sts=4 et tw=72
-au BufNewFile *.php set fileformat=unix
+augroup php
+    au BufRead,BufNewFile *.php  set ai sw=4 sts=4 et tw=72
+    au BufNewFile *.php set fileformat=unix
+augroup END
 " *.html
-au BufRead,BufNewFile *.html set ai sw=4 sts=4 et tw=72
-au BufNewFile *.html set fileformat=unix
+augroup html
+    au BufRead,BufNewFile *.html set ai sw=4 sts=4 et tw=72
+    au BufNewFile *.html set fileformat=unix
+augroup END
 " *.json
-au! BufRead,BufNewFile *.json setfiletype json
-au BufRead,BufNewFile *.json set ai sw=4 sts=4 et tw=72
-au BufNewFile *.json set fileformat=unix
+augroup json
+    au! BufRead,BufNewFile *.json setfiletype json
+    au BufRead,BufNewFile *.json set ai sw=4 sts=4 et tw=72
+    au BufNewFile *.json set fileformat=unix
+augroup END
 
-" Pathogen
-call pathogen#infect()
-call pathogen#helptags()
+"
+" Vundle
+"
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
 
-" Status line
-" set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+"
+" Available Vundles
+"
+Bundle 'kien/ctrlp.vim'
+Bundle 'chriskempson/base16-vim'
+Bundle 'bling/vim-airline'
+Bundle 'edkolev/tmuxline.vim'
+Bundle 'edkolev/promptline.vim'
+Bundle 'edkolev/vim-airlineish'
 
+"
+" Enable file indentation
+"
 filetype plugin indent on
 
+"
 " Syntax on
+"
 syntax on
-set t_Co=256
-let base16colorspace=256
-set background=dark
-colorscheme base16-default
+let g:airline_theme = 'tomorrow'
+let g:airline_powerline_fonts = 1
+let g:promptline_preset = 'full'
+let g:promptline_powerline_symbols = 1
+" let g:Powerline_symbols = 'unicode'
+colorscheme Tomorrow-Night
 
+"
 " Mouse support
+"
 set mouse=a
 set mousehide
 
@@ -80,7 +116,7 @@ set hlsearch                    " Highlight matches to the search
 set ignorecase                  " Search is case insensitive
 set smartcase                   " Search case sensitive if caps on
 set incsearch                   " Show best match so far
-" nnoremap <space> :noh<return> " Press <space> to clear highlighted results.
+" nnoremap <space> :noh<return>   " Press <space> to clear highlighted results.
 
 "
 " Display
@@ -101,14 +137,21 @@ set showmode                    " Show current mode.
 set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set laststatus=2                " Always show status bar
+set fillchars+=stl:\ ,stlnc:\
 
+"
 " Remove trailing whitespaces at save
+"
 autocmd BufWritePre * :%s/\s\+$//e
 
+"
 " Ruler at 78, 120 and 999 columns
+"
 let &colorcolumn="80,".join(range(120,999),",")
 
+"
 " Make sure Vim returns to the same line when you reopen a file.
+"
 augroup line_return
     au!
     au BufReadPost *
@@ -117,9 +160,10 @@ augroup line_return
         \ endif
 augroup END
 
+"
 " Leader mapping
+"
 let mapleader = ","
-
 " ,p calls ControlP plugin
 :map ,p :CtrlP<cr>
 " ,n toggles line numbers
@@ -135,21 +179,7 @@ nnoremap <leader>tt :tabnew!<cr>
 " ,tw close tab
 nnoremap <leader>tw :tabclose!<cr>
 
-" Clean trailing whitespace
-" ( hidden as we do the same on save )
-" nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
-
 " Folding
 vmap <space> zf
 nmap <space> za
 
-" Airline configuration
-" let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "base16"
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_fugitive_prefix = '⎇ '
-let g:airline_readonly_symbol = '₩'
-let g:airline_paste_symbol = 'ρ'

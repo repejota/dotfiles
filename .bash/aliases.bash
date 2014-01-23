@@ -1,9 +1,6 @@
 # Enable colorized output.
 alias ls='ls -G'
 
-# Use macvim within a shell
-# alias vim="mvim -v"
-
 # Use grep with color always
 alias grep="grep --color=always"
 
