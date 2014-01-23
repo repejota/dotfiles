@@ -1,0 +1,3 @@
+[submodule ".contrib/tomorrow-theme"]
+	path = .contrib/tomorrow-theme
+	url = https://github.com/chriskempson/tomorrow-theme.git
