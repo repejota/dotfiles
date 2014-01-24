@@ -1,6 +1,3 @@
-# Base path
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
 # Xcode & Developer tools.
 #
 # https://developer.apple.com/technologies/tools/
@@ -14,7 +11,7 @@ PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
 # http://www.haskell.org/cabal/
 # Configures haskell PATH for binaries and installed packages.
 #
-PATH="~/.cabal/bin:$PATH"
+PATH="$HOME/.cabal/bin:$PATH"
 
 # Ruby.
 #
@@ -28,7 +25,7 @@ PATH="/usr/local/opt/ruby/bin:$PATH"
 # http://golang.org/
 # Configures PATH for binaries and for libraries.
 #
-PATH="~/Src/go/bin:$PATH"
+PATH="$HOME/Src/go/bin:$PATH"
 GOPATH="/usr/local/lib/go"
 export PATH
 export GOPATH
@@ -39,7 +36,7 @@ export GOPATH
 # Just put any script ( python, ruby and php also works ) under ~/bin and
 # it will be available as a normal command.
 #
-PATH="~/bin:$PATH"
+PATH="$HOME/.bin:$PATH"
 
 # Android SDK defaults
 #
@@ -47,6 +44,6 @@ PATH="~/bin:$PATH"
 # As we install android-sdk through homebrew, don't need to specify where
 # the executables and tools are.
 #
-export ANDROID_PROJECTS_HOME=~/Projects
+export ANDROID_PROJECTS_HOME="$HOME/Projects"
 export ANDROID_DEFAULT_PKG=com.repejota
 

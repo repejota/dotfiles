@@ -80,10 +80,7 @@ Bundle 'gmarik/vundle'
 " Available Vundles
 "
 Bundle 'kien/ctrlp.vim'
-Bundle 'chriskempson/base16-vim'
 Bundle 'bling/vim-airline'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'edkolev/promptline.vim'
 Bundle 'edkolev/vim-airlineish'
 
 "

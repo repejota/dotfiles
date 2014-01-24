@@ -1,7 +1,7 @@
 # -------------------------------------------------------------------
 # use nocorrect alias to prevent auto correct from "fixing" these
 # -------------------------------------------------------------------
-# alias foobar='nocorrect foobar'
+alias mux='nocorrect mux'
 
 # -------------------------------------------------------------------
 # Ruby stuff
@@ -11,6 +11,11 @@
 # alias be='bundle exec'
 # alias bx='bundle exec'
 # alias gentags='ctags .'
+#
+
+alias fixpref='killall -u $LOGNAME cfprefsd'
+
+alias grep="grep --color=always"
 
 # -------------------------------------------------------------------
 # directory movement
@@ -34,13 +39,7 @@ alias 'dus=du -sckx * | sort -nr' #directories sorted by size
 # Mac only
 # -------------------------------------------------------------------
 if [[ $IS_MAC -eq 1 ]]; then
-    alias ql='qlmanage -p 2>/dev/null' # OS X Quick Look
-    alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
     alias 'smart=diskutil info disk0 | grep SMART' # display SMART status of hard drive
-    # refresh brew by upgrading all outdated casks
-    alias refreshbrew='brew outdated | while read cask; do brew upgrade $cask; done'
-    # rebuild Launch Services to remove duplicate entries on Open With menu
-    alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.fram ework/Support/lsregister -kill -r -domain local -domain system -domain user'
 fi
 
 # -------------------------------------------------------------------
@@ -76,6 +75,9 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 # gu shows a list of all developers and the number of commits they've made
 alias gu="git shortlog | grep -E '^[^ ]'"
 
+alias ssh="ssh -A"
+
+
 # -------------------------------------------------------------------
 # Oddball stuff
 # -------------------------------------------------------------------
@@ -83,11 +85,18 @@ alias 'sloc=/usr/local/sloccount/bin/sloccount'
 alias 'ttop=top -ocpu -R -F -s 2 -n30' # fancy top
 alias 'rm=rm -i' # make rm command (potentially) less destructive
 
-# Force tmux to use 256 colors
-alias tmux='TERM=screen-256color-bce tmux'
-
 # alias to cat this file to display
 alias acat='< ~/.zsh/aliases.zsh'
 alias fcat='< ~/.zsh/functions.zsh'
 alias sz='source ~/.zshrc'
+
+alias mux=teamocil
+
+# Update my system
+alias update_apple="sudo softwareupdate -i -a"
+alias update_brew="brew bundle ~/Projects/dotfiles.osx/Brewfile"
+alias update_node="sudo npm update npm -g; sudo npm update -g"
+alias update_ruby="sudo gem update --system; sudo gem update"
+alias update_python="sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U"
+alias update="update_apple; update_brew; update_node; update_ruby; update_python"
 

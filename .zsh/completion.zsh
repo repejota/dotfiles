@@ -48,4 +48,3 @@ zstyle ':completion:*:ssh:*' tag-order users 'hosts:-host hosts:-domain:domain h
 zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
 zstyle '*' single-ignored show
 
-

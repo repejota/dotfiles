@@ -11,5 +11,3 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/hooks.zsh
 
-
-

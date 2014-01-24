@@ -30,27 +30,14 @@ path() {
 # Mac specific functions
 # -------------------------------------------------------------------
 if [[ $IS_MAC -eq 1 ]]; then
-
     # view man pages in Preview
     pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
-
-    # function to show interface IP assignments
-    ips() { foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo; }
-
-    # notify function - http://hints.macworld.com/article.php?story=20120831112030251
-    notify() { automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow }
 fi
-
-# -------------------------------------------------------------------
-# nice mount (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
-# displays mounted drive information in a nicely formatted manner
-# -------------------------------------------------------------------
-function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
 
 # -------------------------------------------------------------------
 # myIP address
 # -------------------------------------------------------------------
-function myip() {
+function ips() {
   ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
   ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
   ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
