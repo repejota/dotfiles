@@ -11,27 +11,31 @@ install coreutils
 install findutils
 # Install Bash 4
 install bash
+# Install Zsh
+install zsh
 
 # Install wget with IRI support
 install wget --enable-iri
 
 # Install more recent versions of some OS X tools
 install vim --override-system-vi
+install macvim
 
 # Install other useful binaries
 #
-install tmux                    # Terminal multiplexer
-install git                     # DCVS tool
-install links                   # Future's browser :P
-install android-sdk             # Android SDK
-install autoconf                # GNU build tools
-install automake                # GNU build tools
-install sqlite                  # Embeded database
-install bash-completion         # Bash completition
-install tree                    # Shows fs trees
-install nmap                    # Network scanner
-install grc                     # Terminal colofity tool
-install most
+install tmux                        # Terminal multiplexer
+install reattach-to-user-namespace  # Tmux reatach utility
+install git                         # DCVS tool
+install links                       # Future's browser :P
+install android-sdk                 # Android SDK
+install autoconf                    # GNU build tools
+install automake                    # GNU build tools
+install sqlite                      # Embeded database
+install bash-completion             # Bash completition
+install tree                        # Shows fs trees
+install nmap                        # Network scanner
+install grc                         # Terminal colofity tool
+install most                        # Alternative pager
 
 tap homebrew/versions
 

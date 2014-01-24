@@ -1,3 +1,6 @@
+# We want /usr/local/bin before /usr/bin
+PATH="/usr/local/bin:$PATH"
+
 # Xcode & Developer tools.
 #
 # https://developer.apple.com/technologies/tools/
