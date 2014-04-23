@@ -1,3 +1,6 @@
 [submodule ".contrib/tomorrow-theme"]
 	path = .contrib/tomorrow-theme
 	url = https://github.com/chriskempson/tomorrow-theme.git
+[submodule ".vim/bundle/vundle"]
+	path = .vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git

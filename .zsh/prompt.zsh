@@ -1,1 +1,1 @@
-source ~/.zsh/prompts/default.zsh
+source ~/.zsh/prompts/zanshin.zsh

@@ -81,7 +81,7 @@ Bundle 'gmarik/vundle'
 "
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
-Bundle 'edkolev/vim-airlineish'
+Bundle 'ervandew/supertab'
 
 "
 " Enable file indentation

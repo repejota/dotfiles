@@ -50,3 +50,7 @@ PATH="$HOME/.bin:$PATH"
 export ANDROID_PROJECTS_HOME="$HOME/Projects"
 export ANDROID_DEFAULT_PKG=com.repejota
 
+# Chef
+PATH="/opt/chef/embedded/bin:$PATH"
+export PATH
+
