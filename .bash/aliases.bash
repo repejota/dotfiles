@@ -4,9 +4,6 @@ alias ls='ls -G'
 # Use grep with color always
 alias grep="grep --color=always"
 
-# Enable aliases to be sudoed
-alias sudo='sudo '
-
 # Update my system
 alias update_apple="sudo softwareupdate -i -a"
 alias update_brew="brew bundle Brewfile"
@@ -22,6 +19,13 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias reload="exec $SHELL -l"
 
 # I'm lazy :)
-alias g="git"
 alias ssh="ssh -A"
+
+# Mutt aliases
+alias mutt.grn='mutt -F ~/.mutt/raulperez@grn.es -f imaps://mail.grn.es'
+alias mutt.repejota='mutt -F ~/.mutt/repejota@gmail.com'
+alias mutt.raul='mutt -F ~/.mutt/raul@repejota.com'
+
+# Colorify
+alias colorify='grc -es --colour=auto '
 

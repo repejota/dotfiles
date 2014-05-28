@@ -138,10 +138,10 @@ function __promptline_battery {
       local current_capacity=${ioreg_output#*CurrentCapacity\"\ \=}
       current_capacity=${current_capacity%%\ \"*}
 
-      local battery_level=$(($current_capacity * 100 / $battery_capacity))
-      [[ $battery_level -gt $threshold ]] && return 1
+      #local battery_level=$(($current_capacity * 100 / $battery_capacity))
+      #[[ $battery_level -gt $threshold ]] && return 1
 
-      printf "%s" "${battery_symbol}${battery_level}${percent_sign}"
+      #printf "%s" "${battery_symbol}${battery_level}${percent_sign}"
       return
     fi
   fi
@@ -151,10 +151,10 @@ function __promptline_battery {
     if [[ -d $possible_battery_dir && -f "$possible_battery_dir/energy_full" && -f "$possible_battery_dir/energy_now" ]]; then
       current_capacity=$( <"$possible_battery_dir/energy_now" )
       battery_capacity=$( <"$possible_battery_dir/energy_full" )
-      local battery_level=$(($current_capacity * 100 / $battery_capacity))
-      [[ $battery_level -gt $threshold ]] && return 1
+      #local battery_level=$(($current_capacity * 100 / $battery_capacity))
+      #[[ $battery_level -gt $threshold ]] && return 1
 
-      printf "%s" "${battery_symbol}${battery_level}${percent_sign}"
+      #printf "%s" "${battery_symbol}${battery_level}${percent_sign}"
       return
     fi
   done

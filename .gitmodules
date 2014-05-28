@@ -1,6 +1,36 @@
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule ".vim/bundle/solarized"]
+	path = .vim/bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule ".contrib/base16-shell"]
+	path = .contrib/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
 [submodule ".contrib/tomorrow-theme"]
-	path = .contrib/tomorrow-theme
-	url = https://github.com/chriskempson/tomorrow-theme.git
+    path = .contrib/tomorrow-theme
+    url = https://github.com/ChrisKempson/Tomorrow-Theme
+[submodule ".contrib/base16-gnome-terminal"]
+	path = .contrib/base16-gnome-terminal
+	url = https://github.com/chriskempson/base16-gnome-terminal.git
 [submodule ".vim/bundle/vundle"]
 	path = .vim/bundle/vundle
-	url = https://github.com/gmarik/vundle.git
+	url = https://github.com/gmarik/vundle
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule ".fonts/powerline-fonts"]
+	path = .fonts/powerline-fonts
+	url = https://github.com/Lokaltog/powerline-fonts.git
+[submodule ".vim/bundle/vim-json"]
+	path = .vim/bundle/vim-json
+    url = https://github.com/elzr/vim-json.git
+[submodule ".vim/bundle/vim-coffee-script"]
+    path = .vim/bundle/vim-coffee-script
+    url = https://github.com/kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/vim-jade"]
+    path = .vim/bundle/vim-jade
+    url = git://github.com/digitaltoad/vim-jade.git

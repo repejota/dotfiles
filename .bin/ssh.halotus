@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh -A rperez@new-halotus.devel

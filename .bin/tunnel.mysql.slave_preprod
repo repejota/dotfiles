@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh -f trovit.com@vm-preprod-http-02.backend -L 3306:slave.web.mysql.preprod:3306 -N

@@ -2,3 +2,5 @@
 # bash configuration settings.
 #
 [ -n "$PS1" ] && source ~/.bash/.bash_profile
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

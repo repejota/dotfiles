@@ -1,23 +1,37 @@
+# Read default system configuration
+#
+# Use 'bind -p' to see current keymap configuration.
+# Use 'bind -v' to see current applied configuration.
+#
+$include /etc/inputrc
+
+# Instead of emacs keymap use vi keymap
+#
+set editing-mode vi
+
 # No visual/sound bell
 #
 set bell-style none
 
+# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+#
+set input-meta on
+set output-meta on
+
 # make tab-completion case insensitive.
 #
-set completion-ignore-case On
+set completion-ignore-case on
 
-# List all matches in case multiple possible
-# completions are possible
+# List all matches in case multiple possible completions are possible
 #
 set show-all-if-ambiguous on
 
-# Immediately add a trailing slash when autocompleting
-# symlinks to directories
+# Immediately add a trailing slash when autocompleting symlinks to directories
 #
 set mark-symlinked-directories on
 
-# Do not autocomplete hidden files unless the pattern explicitly
-# begins with a dot.
+# Do not autocomplete hidden files unless the pattern explicitly begins with a
+# dot.
 #
 set match-hidden-files off
 
@@ -30,8 +44,7 @@ set page-completions off
 #
 set completion-query-items 200
 
-# Show extra file information when completing.
-# like `ls -F` does
+# Show extra file information when completing like `ls -F` does.
 #
 set visible-stats on
 
@@ -45,33 +58,54 @@ set visible-stats on
 #
 set skip-completed-text on
 
-# Instead of emacs keymap use vi keymap
-#
-# set -o vi
-# set editing-mode vi
-# set keymap vi
+$if mode=vi
 
-# Allow UTF-8 input and output, instead of
-# showing stuff like $'\0123\0456'
+# Keymap for vim-command mode
 #
-# set input-meta on
-# set output-meta on
-# set convert-meta off
+set keymap vi-command
 
-# If you type any text and press Up/Down,
-# you can search your history for commands starting
-# with that text
+# History search with arrow up and arrow down
 #
-# "\e[B": history-search-forward
-# "\e[A": history-search-backward
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\eOA": history-search-backward
+"\eOB": history-search-forward
 
-# TODO
-# Use Alt Arrow keys to move along words
+# Clearing screen
 #
-# "\e\e[C": forward-word    # Alt+right
-# "\e\e[D": backward-word    # Alt+left
+Control-l: clear-screen
 
-# TODO
-# Use Fn Arrow keys to move to the end / start of a line.
+# Word moving with Ctrl-left-arrow and Ctrl-right-arrow.
 #
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+
+
+# Keymap for vim-insert mode
+#
+set keymap vi-insert
+
+# History search with arrow up and arrow down
+#
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\eOA": history-search-backward
+"\eOB": history-search-forward
+
+# Clearing screen
+#
+Control-l: clear-screen
+
+# Word moving with Ctrl-left-arrow and Ctrl-right-arrow.
+#
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
 

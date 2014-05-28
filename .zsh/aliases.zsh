@@ -31,9 +31,6 @@ alias 'rm=rm -i' # make rm command (potentially) less destructive
 
 alias sz='source ~/.zshrc'
 
-alias t=tmux
-alias mux=teamocil
-
 # Update my system
 alias update_apple="sudo softwareupdate -i -a"
 alias update_brew="brew bundle ~/Projects/dotfiles.osx/Brewfile"

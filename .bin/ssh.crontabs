@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh trovit.com@crontabs-02.backend

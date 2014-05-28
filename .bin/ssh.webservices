@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh trovit.com@webservices-01.backend

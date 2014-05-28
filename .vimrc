@@ -82,6 +82,9 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
 Bundle 'ervandew/supertab'
+Bundle 'elzr/vim-json'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
 
 "
 " Enable file indentation
