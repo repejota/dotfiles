@@ -85,6 +85,8 @@ Bundle 'ervandew/supertab'
 Bundle 'elzr/vim-json'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
 
 "
 " Enable file indentation
