@@ -1,7 +1,0 @@
-windows:
-  - name: "logs"
-    root: "~/"
-    layout: even-vertical
-    panes:
-      - cmd: ["logs.storage | grep Fatal"]
-      - cmd: ["logs.storage | grep mobile"]
