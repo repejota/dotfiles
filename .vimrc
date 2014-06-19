@@ -83,6 +83,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
 Bundle 'ervandew/supertab'
 Bundle 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'plasticboy/vim-markdown'
