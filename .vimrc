@@ -87,6 +87,7 @@ let g:vim_json_syntax_conceal = 0
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'markcornick/vim-vagrant'
 let g:vim_markdown_folding_disabled=1
 
 "

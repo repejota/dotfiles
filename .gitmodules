@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/vim-jade"]
     path = .vim/bundle/vim-jade
     url = git://github.com/digitaltoad/vim-jade.git
+[submodule ".vim/bundle/vim-vagrant"]
+    path = .vim/bundle/vim-vagrant
+    url = git://github.com/markcornick/vim-vagrant.git
