@@ -37,3 +37,9 @@
 [submodule ".vim/bundle/vim-vagrant"]
     path = .vim/bundle/vim-vagrant
     url = git://github.com/markcornick/vim-vagrant.git
+[submodule ".vim/bundle/vim-fugitive"]
+	path = .vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git

@@ -88,6 +88,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'markcornick/vim-vagrant'
+Bundle 'tpope/vim-fugitive'
+Bundle 'pangloss/vim-javascript'
 let g:vim_markdown_folding_disabled=1
 
 "
