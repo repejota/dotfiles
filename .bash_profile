@@ -70,16 +70,9 @@ $C_PWD""\w""$C_GT"">""$NOTHING "
 
 export PS1
 
-# HOME/bin Path
-export PATH="$HOME/bin:$PATH"
-
 source .bash/path.bash
 source .bash/aliases.bash
 source .bash/completion.bash
 source .bash/history.bash
 source .bash/prompts/powerline.bash
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-export PATH="/opt/chef/embedded/bin:$PATH"
 

@@ -35,7 +35,8 @@ PATH="/usr/local/bin:$PATH"
 #
 # PATH="/usr/local/Cellar/ruby/2.1.1_1/bin:$PATH"
 PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Chef.
 #
-# PATH="/opt/chef/embedded/bin:$PATH"
+PATH="/opt/chef/embedded/bin:$PATH"
