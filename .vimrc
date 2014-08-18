@@ -91,6 +91,7 @@ Bundle 'markcornick/vim-vagrant'
 Bundle 'tpope/vim-fugitive'
 Bundle 'pangloss/vim-javascript'
 let g:vim_markdown_folding_disabled=1
+Bundle 'tpope/vim-surround'
 
 "
 " Enable file indentation
