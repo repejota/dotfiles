@@ -6,7 +6,6 @@ install coreutils
 install findutils
 install bash
 install zsh
-install ncurses
 
 install wget --enable-iri
 
