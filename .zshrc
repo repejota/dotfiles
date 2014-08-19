@@ -11,3 +11,5 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/hooks.zsh
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
