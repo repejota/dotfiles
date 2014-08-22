@@ -71,8 +71,8 @@ augroup END
 "
 " Vundle
 "
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
@@ -92,6 +92,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'pangloss/vim-javascript'
 let g:vim_markdown_folding_disabled=1
 Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdtree'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 "
 " Enable file indentation
@@ -173,6 +177,8 @@ augroup END
 let mapleader = ","
 " ,p calls ControlP plugin
 :map ,p :CtrlP<cr>
+" ,t calls NERDTree plugin
+:map ,t :NERDTree<cr>
 " ,n toggles line numbers
 nnoremap <leader>n :setlocal number!<cr>
 " ,i toggles invisible characters

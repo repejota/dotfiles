@@ -26,6 +26,7 @@ install grc
 install most
 install mutt
 install urlview
+install irssi
 
 tap homebrew/versions
 
