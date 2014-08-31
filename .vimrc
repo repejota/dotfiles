@@ -178,7 +178,7 @@ let mapleader = ","
 " ,p calls ControlP plugin
 :map ,p :CtrlP<cr>
 " ,t calls NERDTree plugin
-:map ,t :NERDTree<cr>
+:map ,t :NERDTreeToggle<cr>
 " ,n toggles line numbers
 nnoremap <leader>n :setlocal number!<cr>
 " ,i toggles invisible characters
