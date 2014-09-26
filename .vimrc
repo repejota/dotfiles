@@ -17,6 +17,7 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+set smarttab
 
 " Better completion
 set complete=.,w,b,u,t
@@ -93,6 +94,7 @@ Bundle 'pangloss/vim-javascript'
 let g:vim_markdown_folding_disabled=1
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
+Bundle 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -149,6 +151,8 @@ set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set laststatus=2                " Always show status bar
 set fillchars+=stl:\ ,stlnc:\
+set wrap
+set textwidth=0 wrapmargin=0
 
 "
 " Remove trailing whitespaces at save
@@ -191,8 +195,11 @@ nnoremap <leader>tp :tabprevious<cr>
 nnoremap <leader>tt :tabnew!<cr>
 " ,tw close tab
 nnoremap <leader>tw :tabclose!<cr>
+" ,l reindent source code
+nnoremap <leader>l :gg=G<cr>
 
 " Folding
 vmap <space> zf
 nmap <space> za
 
+let NERDTreeShowHidden=1

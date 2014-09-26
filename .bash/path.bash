@@ -40,3 +40,7 @@ PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Chef.
 #
 PATH="/opt/chef/embedded/bin:$PATH"
+
+# Golang
+#
+PATH="/Users/raul/Src/go/bin:$PATH"

@@ -17,6 +17,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload shell configuration
 alias reload="exec $SHELL -l"
+alias r="reload"
 
 # I'm lazy :)
 alias ssh="ssh -A"
