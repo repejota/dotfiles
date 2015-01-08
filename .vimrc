@@ -99,6 +99,8 @@ let NERDTreeShowHidden=1
 Bundle 'fatih/vim-go'
 Bundle 'majutsushi/tagbar'
 Bundle 'kylef/apiblueprint.vim'
+Bundle 'chriskempson/base16-vim'
+let base16colorspace=256
 
 
 " All of your Plugins must be added before the following line
@@ -117,8 +119,8 @@ let g:airline_theme = 'tomorrow'
 let g:airline_powerline_fonts = 1
 let g:promptline_preset = 'full'
 let g:promptline_powerline_symbols = 1
-" let g:Powerline_symbols = 'unicode'
-colorscheme Tomorrow-Night
+set background=dark
+colorscheme base16-default
 
 "
 " Mouse support

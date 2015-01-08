@@ -75,8 +75,8 @@ source .bash/aliases.bash
 source .bash/completion.bash
 source .bash/history.bash
 source .bash/prompts/powerline.bash
+source .contrib/base16-shell/base16-tomorrow.dark.sh
 
-export PATH="/opt/chef/embedded/bin:$PATH"
 export PATH="/opt/chef/embedded/bin:$PATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
