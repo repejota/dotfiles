@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/raul/Work/Src/AP/harvest/web/harvest.connector/util/saveToken'
 let g:netrw_dirhist_2='/Users/raul/Projects/node-lockrun/lib'
+let g:netrw_dirhist_3='/Users/raul/Projects/openapigirona/vagrantdev/.git'
+let g:netrw_dirhist_4='/Users/raul/Projects/gitalias.es/src/github.com/repejota/gitalias.es'
+let g:netrw_dirhist_5='/Users/raul/Projects/gitalias.es/.git'
+let g:netrw_dirhist_6='/Users/raul/Projects/moview.io/src/github.com/moview/moview.io'

@@ -5,6 +5,7 @@ set nocompatible
 " Also prefered file format is unix with fallbacks to mac and dos.
 set encoding=utf-8
 set ffs=unix,mac,dos
+set formatoptions-=tc
 
 " Time out on key codes but not mappings.
 " This makes terminal Vim work sanely.
@@ -94,7 +95,11 @@ Bundle 'pangloss/vim-javascript'
 let g:vim_markdown_folding_disabled=1
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
 Bundle 'fatih/vim-go'
+Bundle 'majutsushi/tagbar'
+Bundle 'kylef/apiblueprint.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -182,7 +187,9 @@ let mapleader = ","
 " ,p calls ControlP plugin
 :map ,p :CtrlP<cr>
 " ,t calls NERDTree plugin
-:map ,t :NERDTreeToggle<cr>
+:map ,t :NERDTreeToggle<CR>
+" ,tb calls TagbarToggle plugin
+:map ,tb ::TagbarToggle<CR>
 " ,n toggles line numbers
 nnoremap <leader>n :setlocal number!<cr>
 " ,i toggles invisible characters

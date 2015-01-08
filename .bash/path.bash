@@ -4,7 +4,9 @@
 # Just put any script ( python, ruby and php also works ) under ~/bin and
 # it will be available as a normal command.
 #
-PATH="~/.bin:$PATH"
+PATH="~/.bin:./.bin:$PATH"
+
+PATH=/usr/bin:$PATH
 
 # Xcode & Developer tools.
 #
