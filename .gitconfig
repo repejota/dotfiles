@@ -9,7 +9,7 @@
 [core]
 	whitespace = trailing-space,space-before-tab
 	editor = /usr/bin/vim
-	excludesfile = /Users/raul/.gitignore_global
+	excludesfile = /Users/raul/.gitignore
 [branch]
 	autosetupmerge = true
 [rerere]
