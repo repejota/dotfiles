@@ -177,9 +177,9 @@ let &colorcolumn="80,".join(range(120,999),",")
 augroup line_return
     au!
     au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \     execute 'normal! g`"zvzz' |
+                \ endif
 augroup END
 
 "
@@ -205,10 +205,8 @@ nnoremap <leader>tt :tabnew!<cr>
 " ,tw close tab
 nnoremap <leader>tw :tabclose!<cr>
 " ,l reindent source code
-nnoremap <leader>l :gg=G<cr>
+nnoremap <leader>l mzgg=G`z<cr>
 
 " Folding
 vmap <space> zf
 nmap <space> za
-
-let NERDTreeShowHidden=1
