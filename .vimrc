@@ -100,6 +100,7 @@ Bundle 'fatih/vim-go'
 Bundle 'majutsushi/tagbar'
 Bundle 'kylef/apiblueprint.vim'
 Bundle 'chriskempson/base16-vim'
+Bundle 'airblade/vim-gitgutter'
 let base16colorspace=256
 
 
@@ -120,7 +121,7 @@ let g:airline_powerline_fonts = 1
 let g:promptline_preset = 'full'
 let g:promptline_powerline_symbols = 1
 set background=dark
-colorscheme base16-default
+colorscheme base16-tomorrow
 
 "
 " Mouse support
