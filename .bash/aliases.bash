@@ -1,6 +1,9 @@
 # Enable colorized output.
 alias ls='ls -G'
 
+# Tmux with 256 colors
+alias tmux="tmux -2"
+
 # Use grep with color always
 alias grep="grep --color=always"
 
