@@ -39,8 +39,8 @@ PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
 # http://brew.sh/
 # Configures homebrew PATH for binaries and installed packages executables.
 #
-PATH="/usr/local/bin:$PATH"
 PATH="/usr/bin:$PATH"
+PATH="/usr/local/bin:$PATH"
 
 # Chef.
 #
