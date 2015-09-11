@@ -49,6 +49,15 @@ PATH="/opt/chef/embedded/bin:$PATH"
 # Golang
 #
 PATH="/Users/raul/Src/go/bin:$PATH"
+GOROOT=`go env GOROOT`
+export GOROOT
+unset GOPATH
+GOPATH=~/go
+export GOPATH
+GOBIN=$GOPATH/bin
+export GOBIN
+PATH=$GOPATH/bin:".":$PATH
+export PATH
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

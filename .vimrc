@@ -101,6 +101,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'kylef/apiblueprint.vim'
 Bundle 'chriskempson/base16-vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'maksimr/vim-jsbeautify'
 let base16colorspace=256
 
 
