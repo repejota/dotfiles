@@ -118,7 +118,7 @@ filetype plugin indent on
 " Syntax on
 "
 syntax on
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
 let g:promptline_preset = 'full'
 let g:promptline_powerline_symbols = 1
