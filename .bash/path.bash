@@ -41,10 +41,7 @@ PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
 #
 PATH="/usr/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
-
-# Chef.
-#
-PATH="/opt/chef/embedded/bin:$PATH"
+PATH="/usr/local/sbin:$PATH"
 
 # Golang
 #
@@ -58,6 +55,3 @@ GOBIN=$GOPATH/bin
 export GOBIN
 PATH=$GOPATH/bin:".":$PATH
 export PATH
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

@@ -1,7 +1,0 @@
-#!/bin/sh
-git for-each-ref \
-  --format='%(taggerdate:iso8601) %(refname:short)' refs/tags |
-  grep -v '^ ' |
-  sort |
-  cut -d' ' -f4- |
-  tail

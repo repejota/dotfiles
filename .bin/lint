@@ -1,8 +1,0 @@
-#!/bin/bash
-echo "Linting PHP...";
-find . -name *.php -exec php -l {} \;
-echo "Linting JSON...";
-find . -name *.json -exec jsonlint -q {} \;
-echo "Linting XML...";
-find . -name *.xml -exec xmllint {} --noout \;
-

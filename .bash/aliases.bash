@@ -25,11 +25,5 @@ alias r="reload"
 # I'm lazy :)
 alias ssh="ssh -A"
 
-# Mutt aliases
-alias mutt.grn='mutt -F ~/.mutt/raulperez@grn.es -f imaps://mail.grn.es'
-alias mutt.repejota='mutt -F ~/.mutt/repejota@gmail.com'
-alias mutt.raul='mutt -F ~/.mutt/raul@repejota.com'
-
 # Colorify
 alias colorify='grc -es --colour=auto '
-
