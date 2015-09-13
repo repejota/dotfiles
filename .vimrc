@@ -102,6 +102,7 @@ Bundle 'kylef/apiblueprint.vim'
 Bundle 'chriskempson/base16-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'maksimr/vim-jsbeautify'
+Bundle 'tmux-plugins/vim-tmux'
 let base16colorspace=256
 
 
