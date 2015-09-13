@@ -1,4 +1,4 @@
-source ~/Projects/dotfiles/mutt-colors.muttrc
+source ~/Src/dotfiles.osx/mutt-colors.muttrc
 
 # Paths ----------------------------------------------------------------------
 set folder           = ~/.mail               # mailbox location

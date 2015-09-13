@@ -43,6 +43,11 @@ augroup markdown
     au BufNewFile,BufRead *.md setlocal filetype=ghmarkdown
     au BufNewFile,BufRead *.markdown setlocal filetype=ghmarkdown
 augroup END
+" *.rb
+augroup python
+    au BufRead,BufNewFile *.rb set ai sw=2 sts=2 et tw=72
+    au BufNewFile *.rb set fileformat=unix
+augroup END
 " *.py
 augroup python
     au BufRead,BufNewFile *.py  set ai sw=4 sts=4 et tw=72
@@ -103,6 +108,7 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'tmux-plugins/vim-tmux'
+Bundle 'StanAngeloff/php'
 let base16colorspace=256
 
 
