@@ -9,7 +9,6 @@
 [core]
 	whitespace = trailing-space,space-before-tab
 	editor = /usr/bin/vim
-	excludesfile = /Users/raul/.gitignore
 [branch]
 	autosetupmerge = true
 [rerere]
@@ -25,8 +24,7 @@
     df = diff --word-diff=color
     dt = diff-tree --no-commit-id --name-only -r
     st = "status -sb"
-    #ls = log --graph --pretty=format:'%Cred%h%Creset %Cgreen%cr%Creset %Cblue%an%Creset%C(yellow)%d%Creset %s'
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ls = log --graph --pretty=format:'%Cred%h%Creset %Cgreen%cr%Creset %Cblue%an%Creset%C(yellow)%d%Creset %s'
     lt = !git describe --tags `git rev-list --tags --max-count=1`
 
     # pull and rebase
@@ -49,16 +47,14 @@
     theirs = checkout --theirs
     ours = checkout --ours
 
-[push]
-	default = simple
-[merge]
-	tool = vimdiff
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    fl = flow feature
+    fs = flow feature start
+    ff = flow feature finish
+    rl = flow release
+    rs = flow release start
+    rf = flow release finish
+
+    develop = checkout develop
+    master = checkout master
+
+    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
