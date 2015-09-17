@@ -215,6 +215,8 @@ nnoremap <leader>tt :tabnew!<cr>
 nnoremap <leader>tw :tabclose!<cr>
 " ,l reindent source code
 nnoremap <leader>l mzgg=G`z<cr>
+" ,f jsbeautify source code
+nnoremap <leader>f :call JsBeautify()<cr>
 
 " Folding
 vmap <space> zf
