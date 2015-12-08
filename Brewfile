@@ -2,6 +2,7 @@ update
 
 upgrade
 
+install lesspipe
 install coreutils
 install findutils
 install bash
