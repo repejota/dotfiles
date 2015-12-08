@@ -25,6 +25,11 @@ export TERM="xterm-256color"
 export TERM="screen-256color-bce"
 
 export EDITOR=vim
+export VISUAL=vim
+
+# Use most as a pager so it can be colorized.
+#
+export PAGER="most -s"
 
 source ~/.bash/path.bash
 source ~/.bash/aliases.bash

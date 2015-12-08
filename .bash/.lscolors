@@ -1,9 +1,0 @@
-# Enable support for color output on 'ls'
-# Equivalent to 'ls -G' ( we have this one too as a alias )
-#
-export CLICOLOR=true
-
-# Sets custom colors for each type of file or folder
-#
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
