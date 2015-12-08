@@ -3,6 +3,7 @@ alias ls='ls -G'
 
 # Tmux with 256 colors
 alias tmux="tmux -2"
+alias tx="tmuxinator"
 
 # Use grep with color always
 alias grep="grep --color=always"
@@ -27,3 +28,8 @@ alias ssh="ssh -A"
 
 # Colorify
 alias colorify='grc -es --colour=auto '
+
+# Docker Aliases
+alias dm="docker-machine"
+alias dc="docker-compose"
+alias d="docker"

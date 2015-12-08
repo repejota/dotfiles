@@ -17,9 +17,9 @@ export TERM="screen-256color-bce"
 
 export EDITOR=vim
 
-source .bash/path.bash
-source .bash/aliases.bash
-source .bash/completion.bash
-source .bash/history.bash
-source .bash/prompts/powerline.bash
-source .contrib/base16-shell/base16-tomorrow.dark.sh
+source ~/.bash/path.bash
+source ~/.bash/aliases.bash
+source ~/.bash/completion.bash
+source ~/.bash/history.bash
+source ~/.bash/prompts/powerline.bash
+source ~/.contrib/base16-shell/base16-tomorrow.dark.sh

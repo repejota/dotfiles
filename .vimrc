@@ -55,7 +55,7 @@ augroup python
 augroup END
 " *.js
 augroup javascript
-    au BufRead,BufNewFile *.js  set ai sw=4 sts=4 et tw=72
+    au BufRead,BufNewFile *.js  set ai sw=2 sts=2 et tw=72
     au BufNewFile *.js set fileformat=unix
 augroup END
 " *.php
@@ -108,8 +108,9 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'tmux-plugins/vim-tmux'
-Bundle 'StanAngeloff/php'
+Bundle 'rust-lang/rust.vim'
 let base16colorspace=256
+Bundle 'Valloric/YouCompleteMe'
 
 
 " All of your Plugins must be added before the following line
@@ -169,6 +170,12 @@ set laststatus=2                " Always show status bar
 set fillchars+=stl:\ ,stlnc:\
 set wrap
 set textwidth=0 wrapmargin=0
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 "
 " Remove trailing whitespaces at save
