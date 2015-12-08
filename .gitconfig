@@ -8,7 +8,7 @@
 	statusHints = false
 [core]
 	whitespace = trailing-space,space-before-tab
-	editor = /usr/local/bin/vim
+	editor = vim
 [branch]
 	autosetupmerge = true
 [rerere]
