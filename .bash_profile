@@ -33,6 +33,7 @@ export PAGER="most -s"
 
 source ~/.bash/path.bash
 source ~/.bash/aliases.bash
+source ~/.bash/functions.bash
 source ~/.bash/completion.bash
 source ~/.bash/history.bash
 source ~/.bash/prompts/powerline.bash
