@@ -2,6 +2,7 @@ update
 
 upgrade
 
+install ngrep
 install lesspipe
 install coreutils
 install findutils
