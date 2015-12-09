@@ -16,12 +16,6 @@ To clone this project on your machine use this:
 
 `$ git clone https://github.com/repejota/dotfiles.git`
 
-In most of cases using the master ( or any release ) should be enough for your
-purposes. In case you want to use the *develop* branch you can clone it like
-this:
-
-`$ git clone https://github.com/repejota/dotfiles.git#develop`
-
 ## Installation
 
 Currently I don't have any build/installation system. I'm planning to do this
