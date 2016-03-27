@@ -68,15 +68,22 @@ function __promptline_wrapper {
 
 # Builds a new prompt based on segments.
 function __promptline_ps1 {
+  # Escape char delimiters
   local esc=$'['
   local end_esc=m
+
   local noprint='\['
   local end_noprint='\]'
+
   local wrap="$noprint$esc"
   local end_wrap="$end_esc$end_noprint"
+
   local space=" "
+
   local sep=""
+
   local alt_sep=""
+
   local reset="${wrap}0${end_wrap}"
   local reset_bg="${wrap}49${end_wrap}"
 
@@ -99,13 +106,13 @@ function __promptline_ps1 {
   local is_prompt_empty=1
 
   # section "hostname" header
-  slice_prefix="${host_bg}${sep}${host_fg}${host_bg}${space}"
-  slice_suffix="$space${host_sep_fg}"
-  slice_joiner="${host_fg}${host_bg}${alt_sep}${space}"
-  slice_empty_prefix="${host_fg}${host_bg}${space}"
-  [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
+  # slice_prefix="${host_bg}${sep}${host_fg}${host_bg}${space}"
+  # slice_suffix="$space${host_sep_fg}"
+  # slice_joiner="${host_fg}${host_bg}${alt_sep}${space}"
+  # slice_empty_prefix="${host_fg}${host_bg}${space}"
+  # [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
   # section "hostname" slices
-  __promptline_wrapper "$(printf "%s@%s" \\u \\h)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
+  # __promptline_wrapper "$(printf "%s@%s" \\u \\h)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
 
   # section "cwd" header
   slice_prefix="${cwd_bg}${sep}${cwd_fg}${cwd_bg}${space}"

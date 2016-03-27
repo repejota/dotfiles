@@ -1,0 +1,8 @@
+#!/bin/sh
+git flow release start $1
+echo $1 > VERSION
+git add .
+git commit -am "Bump $1"
+git flow release finish $1
+git push origin --all
+git push origin --tags

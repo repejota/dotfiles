@@ -109,7 +109,6 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'tmux-plugins/vim-tmux'
 Bundle 'rust-lang/rust.vim'
-let base16colorspace=256
 Bundle 'Valloric/YouCompleteMe'
 
 
@@ -125,18 +124,20 @@ filetype plugin indent on
 " Syntax on
 "
 syntax on
-let g:airline_theme = 'base16'
+let base16colorspace=256
+set background=dark
+colorscheme base16-default
+" let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
 let g:promptline_preset = 'full'
 let g:promptline_powerline_symbols = 1
-set background=dark
-colorscheme base16-tomorrow
 
 "
 " Mouse support
 "
 set mouse=a
 set mousehide
+set mousefocus
 
 "
 " Searching and Patterns
@@ -174,8 +175,10 @@ set textwidth=0 wrapmargin=0
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 "
 " Remove trailing whitespaces at save
@@ -202,6 +205,7 @@ augroup END
 " Leader mapping
 "
 let mapleader = ","
+"
 " ,p calls ControlP plugin
 :map ,p :CtrlP<cr>
 " ,t calls NERDTree plugin
@@ -221,7 +225,7 @@ nnoremap <leader>tt :tabnew!<cr>
 " ,tw close tab
 nnoremap <leader>tw :tabclose!<cr>
 " ,l reindent source code
-nnoremap <leader>l mzgg=G`z<cr>
+" nnoremap <leader>l mzgg=G`z<cr>
 " ,f jsbeautify source code
 nnoremap <leader>f :call JsBeautify()<cr>
 

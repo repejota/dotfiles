@@ -1,3 +1,8 @@
+# Colortests
+colortest() {
+    .contrib/base16-shell/colortest
+}
+
 # Remove *.pyc files
 rmpyc() {
     find . -name "*.pyc" -delete
