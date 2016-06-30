@@ -58,5 +58,8 @@
     master = checkout master
 
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+
+    pof = !git push origin `git rev-parse --abbrev-ref HEAD` --force
+    fixup = commit --amend -C HEAD
 [push]
 	default = simple

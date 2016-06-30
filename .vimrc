@@ -88,6 +88,8 @@ Bundle 'gmarik/Vundle.vim'
 "
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'ervandew/supertab'
 Bundle 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
@@ -100,6 +102,10 @@ Bundle 'pangloss/vim-javascript'
 let g:vim_markdown_folding_disabled=1
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
+" Make sure that when NT root is changed, Vim's pwd is also updated
+let NERDTreeChDirMode = 2
+let NERDTreeShowLineNumbers = 1
+let NERDTreeAutoCenter = 1
 let NERDTreeShowHidden=1
 Bundle 'fatih/vim-go'
 Bundle 'majutsushi/tagbar'
@@ -127,7 +133,8 @@ syntax on
 let base16colorspace=256
 set background=dark
 colorscheme base16-default
-" let g:airline_theme = 'base16'
+let g:solarized_base16 = 1
+let g:airline_theme = 'base16_default'
 let g:airline_powerline_fonts = 1
 let g:promptline_preset = 'full'
 let g:promptline_powerline_symbols = 1
@@ -172,6 +179,10 @@ set fillchars+=stl:\ ,stlnc:\
 set wrap
 set textwidth=0 wrapmargin=0
 
+" Open NERDTree on startup, when no file has been specified
+autocmd VimEnter * if !argc() | NERDTree | endif
+
+" vim-go configuration
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -179,6 +190,35 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+
+" Tagbar configuration
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 "
 " Remove trailing whitespaces at save
@@ -209,11 +249,11 @@ let mapleader = ","
 " ,p calls ControlP plugin
 :map ,p :CtrlP<cr>
 " ,t calls NERDTree plugin
-:map ,t :NERDTreeToggle<CR>
+:map ,t :NERDTreeToggle<cr>
 " ,tb calls TagbarToggle plugin
-:map ,tb ::TagbarToggle<CR>
-" ,n toggles line numbers
-nnoremap <leader>n :setlocal number!<cr>
+:map ,tb ::TagbarToggle<cr>
+" ,ln toggles line numbers
+nnoremap <leader>ln :setlocal number!<cr>
 " ,i toggles invisible characters
 nnoremap <leader>i :set list!<cr>
 " ,tn go to next tab
@@ -224,11 +264,31 @@ nnoremap <leader>tp :tabprevious<cr>
 nnoremap <leader>tt :tabnew!<cr>
 " ,tw close tab
 nnoremap <leader>tw :tabclose!<cr>
-" ,l reindent source code
-" nnoremap <leader>l mzgg=G`z<cr>
-" ,f jsbeautify source code
-nnoremap <leader>f :call JsBeautify()<cr>
+" ,wu up window
+nnoremap <leader>wu <c-w>k<cr>
+" ,wd down windows
+nnoremap <leader>wd <c-w>j<cr>
+" ,wn next window
+nnoremap <leader>wn <c-w>l<cr>
+" ,wp previous window
+nnoremap <leader>wp <c-w>h<cr>
+" ,<space> clear hightlight until next search
+nnoremap <leader><space> :noh<cr>
 
 " Folding
 vmap <space> zf
 nmap <space> za
+
+" Show type info for the word under your cursor
+au FileType go nmap <Leader>gi <Plug>(go-info)
+
+
+" Open the relevant Godoc for the word under the cursor
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+" Open the Godoc in browser
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+" ,f jsbeautify source code
+au FileType javascript nnoremap <leader>jsb :call JsBeautify()<cr>
