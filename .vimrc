@@ -132,7 +132,7 @@ filetype plugin indent on
 syntax on
 let base16colorspace=256
 set background=dark
-colorscheme base16-default
+colorscheme base16-default-dark
 let g:solarized_base16 = 1
 let g:airline_theme = 'base16_default'
 let g:airline_powerline_fonts = 1
