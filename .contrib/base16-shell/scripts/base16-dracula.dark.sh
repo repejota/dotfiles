@@ -1,54 +1,56 @@
 #!/bin/sh
-# base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
-# Ashes scheme by Jannik Siebert (https://github.com/janniks)
+# Base16 Dracula - Shell color setup script
+# Kleber Soares
 
-# This script doesn't support linux console (use 'vconsole' template instead)
 if [ "${TERM%%-*}" = 'linux' ]; then
+    # This script doesn't support linux console (use 'vconsole' template instead)
     return 2>/dev/null || exit 0
 fi
 
-color00="1C/20/23" # Base 00 - Black
-color01="C7/AE/95" # Base 08 - Red
-color02="95/C7/AE" # Base 0B - Green
-color03="AE/C7/95" # Base 0A - Yellow
-color04="AE/95/C7" # Base 0D - Blue
-color05="C7/95/AE" # Base 0E - Magenta
-color06="95/AE/C7" # Base 0C - Cyan
-color07="C7/CC/D1" # Base 05 - White
-color08="74/7C/84" # Base 03 - Bright Black
+color00="28/29/36" # Base 00 - Black
+color01="ea/51/b2" # Base 08 - Red
+color02="eb/ff/87" # Base 0B - Green
+color03="00/f7/69" # Base 0A - Yellow
+color04="62/d6/e8" # Base 0D - Blue
+color05="b4/5b/cf" # Base 0E - Magenta
+color06="a1/ef/e4" # Base 0C - Cyan
+color07="e9/e9/f4" # Base 05 - White
+color08="62/64/83" # Base 03 - Bright Black
 color09=$color01 # Base 08 - Bright Red
 color10=$color02 # Base 0B - Bright Green
 color11=$color03 # Base 0A - Bright Yellow
 color12=$color04 # Base 0D - Bright Blue
 color13=$color05 # Base 0E - Bright Magenta
 color14=$color06 # Base 0C - Bright Cyan
-color15="F3/F4/F5" # Base 07 - Bright White
-color16="C7/C7/95" # Base 09
-color17="C7/95/95" # Base 0F
-color18="39/3F/45" # Base 01
-color19="56/5E/65" # Base 02
-color20="AD/B3/BA" # Base 04
-color21="DF/E2/E5" # Base 06
-color_foreground="C7/CC/D1" # Base 05
-color_background="1C/20/23" # Base 00
-color_cursor="C7/CC/D1" # Base 05
+color15="f7/f7/fb" # Base 07 - Bright White
+color16="b4/5b/cf" # Base 09
+color17="00/f7/69" # Base 0F
+color18="3a/3c/4e" # Base 01
+color19="4d/4f/68" # Base 02
+color20="7c/7f/a7" # Base 04
+color21="f1/f2/f8" # Base 06
+color_foreground="e9/e9/f4" # Base 05
+color_background="28/29/36" # Base 00
+color_cursor="e9/e9/f4" # Base 05
 
 if [ -n "$TMUX" ]; then
-  # Tell tmux to pass the escape sequences through
+  # tell tmux to pass the escape sequences through
   # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-  printf_template='\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\'
-  printf_template_var='\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\'
-  printf_template_custom='\033Ptmux;\033\033]%s%s\033\033\\\033\\'
+  printf_template="\033Ptmux;\033\033]4;%d;rgb:%s\007\033\\"
+  printf_template_var="\033Ptmux;\033\033]%d;rgb:%s\007\033\\"
+  printf_template_custom="\033Ptmux;\033\033]%s%s\007\033\\"
 elif [ "${TERM%%-*}" = "screen" ]; then
   # GNU screen (screen, screen-256color, screen-256color-bce)
-  printf_template='\033P\033]4;%d;rgb:%s\033\\'
-  printf_template_var='\033P\033]%d;rgb:%s\033\\'
-  printf_template_custom='\033P\033]%s%s\033\\'
+  printf_template="\033P\033]4;%d;rgb:%s\007\033\\"
+  printf_template_var="\033P\033]%d;rgb:%s\007\033\\"
+  printf_template_custom="\033P\033]%s%s\007\033\\"
+elif [[ $- != *i* ]]; then
+  # non-interactive
+  alias printf=/bin/false
 else
-  printf_template='\033]4;%d;rgb:%s\033\\'
-  printf_template_var='\033]%d;rgb:%s\033\\'
-  printf_template_custom='\033]%s%s\033\\'
+  printf_template="\033]4;%d;rgb:%s\033\\"
+  printf_template_var="\033]%d;rgb:%s\033\\"
+  printf_template_custom="\033]%s%s\033\\"
 fi
 
 # 16 color space
@@ -80,13 +82,13 @@ printf $printf_template 21 $color21
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  printf $printf_template_custom Pg C7CCD1 # forground
-  printf $printf_template_custom Ph 1C2023 # background
-  printf $printf_template_custom Pi C7CCD1 # bold color
-  printf $printf_template_custom Pj 565E65 # selection color
-  printf $printf_template_custom Pk C7CCD1 # selected text color
-  printf $printf_template_custom Pl C7CCD1 # cursor
-  printf $printf_template_custom Pm 1C2023 # cursor text
+  printf $printf_template_custom Pg e9e9f4 # forground
+  printf $printf_template_custom Ph 282936 # background
+  printf $printf_template_custom Pi e9e9f4 # bold color
+  printf $printf_template_custom Pj 4d4f68 # selection color
+  printf $printf_template_custom Pk e9e9f4 # selected text color
+  printf $printf_template_custom Pl e9e9f4 # cursor
+  printf $printf_template_custom Pm 282936 # cursor text
 else
   printf $printf_template_var 10 $color_foreground
   printf $printf_template_var 11 $color_background

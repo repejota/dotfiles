@@ -61,5 +61,6 @@
 
     pof = !git push origin `git rev-parse --abbrev-ref HEAD` --force
     fixup = commit --amend -C HEAD
+
 [push]
 	default = simple

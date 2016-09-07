@@ -33,12 +33,12 @@ export PAGER="most -s"
 
 source ~/.profile
 
-source ~/.contrib/base16-shell/base16-default.dark.sh
+source ~/.contrib/base16-shell/scripts/base16-default-dark.sh
 source ~/.bash/path.bash
 source ~/.bash/aliases.bash
 source ~/.bash/functions.bash
 source ~/.bash/completion.bash
 source ~/.bash/history.bash
 
-source ~/.bash/prompts/powerline.sh
-
+#source ~/.bash/prompts/powerline.sh
+source ~/.bash/prompts/psh.sh
