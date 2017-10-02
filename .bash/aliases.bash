@@ -8,6 +8,7 @@ alias fgrep='fgrep --color=always'
 alias egrep='egrep --color=always'
 
 # Colorize exa
+alias ls="exa"
 alias l="exa -la"
 
 # SSH Agent

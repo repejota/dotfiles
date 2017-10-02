@@ -18,3 +18,5 @@ PATH="./bin:$PATH"
 PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
 
 PATH="/usr/local/sbin:$PATH"
+
+PATH="/Users/raul/go/bin:$PATH"
