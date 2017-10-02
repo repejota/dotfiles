@@ -7,4 +7,5 @@ export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 # Make some common commands not show up in history.
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
-
+shopt -s histappend         # append to (not overwrite) the history file
+shopt -s cmdhist            # save multi-line commands in history as single line

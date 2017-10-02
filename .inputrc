@@ -1,51 +1,39 @@
-# Read default system configuration
-#
 # Use 'bind -p' to see current keymap configuration.
 # Use 'bind -v' to see current applied configuration.
 #
-$include /etc/inputrc
-
-# Instead of emacs keymap use vi keymap
-#
-set editing-mode vi
+# https://github.com/repejota/bash-vi-editing-mode-cheat-sheet
 
 # No visual/sound bell
-#
 set bell-style none
 
-# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
-#
+# Use Unicode & do NOT use the "8bit hack" to input/output non-ASCII characters
+# See http://code.google.com/p/iterm2/wiki/Keybindings
 set input-meta on
 set output-meta on
+set convert-meta off
 
-# make tab-completion case insensitive.
-#
+# Turn on case insensitivity for tab-completion
+# Ex.: type "doc<tab>" to search for "Documents"
 set completion-ignore-case on
 
 # List all matches in case multiple possible completions are possible
-#
 set show-all-if-ambiguous on
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
-#
 set mark-symlinked-directories on
 
 # Do not autocomplete hidden files unless the pattern explicitly begins with a
 # dot.
-#
 set match-hidden-files off
 
 # Show all autocomplete results at once
-#
 set page-completions off
 
 # If there are more than 200 possible completions for a word, ask to show them
 # all
-#
 set completion-query-items 200
 
 # Show extra file information when completing like `ls -F` does.
-#
 set visible-stats on
 
 # Be more intelligent when autocompleting by also looking at the text after
@@ -55,57 +43,33 @@ set visible-stats on
 # the cursor is on the "z", pressing Tab will not autocomplete it to "cd
 # ~/src/mozillail", but to "cd ~/src/mozilla".
 # (This is supported by the readline used by bash 4+)
-#
 set skip-completed-text on
+
+# Instead of emacs keymap use vi keymap
+# bind -p show all keymaps
+set editing-mode vi
 
 $if mode=vi
 
-# Keymap for vim-command mode
-#
 set keymap vi-command
-
-# History search with arrow up and arrow down
-#
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-"\eOA": history-search-backward
-"\eOB": history-search-forward
-
-# Clearing screen
-#
+# these are for vi-command mode
 Control-l: clear-screen
 
-# Word moving with Ctrl-left-arrow and Ctrl-right-arrow.
-#
-"\e[1;5C": forward-word
-"\e[1;5D": backward-word
-"\e[5C": forward-word
-"\e[5D": backward-word
-"\e\e[C": forward-word
-"\e\e[D": backward-word
-
-
-# Keymap for vim-insert mode
-#
 set keymap vi-insert
-
-# History search with arrow up and arrow down
-#
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-"\eOA": history-search-backward
-"\eOB": history-search-forward
-
-# Clearing screen
-#
+# these are for vi-insert mode
 Control-l: clear-screen
 
-# Word moving with Ctrl-left-arrow and Ctrl-right-arrow.
-#
-"\e[1;5C": forward-word
-"\e[1;5D": backward-word
-"\e[5C": forward-word
-"\e[5D": backward-word
-"\e\e[C": forward-word
-"\e\e[D": backward-word
+$endif
 
+# When pressing up or down arrows,
+# show only history entries that match what was already typed
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+
+# If set to `on', add a character to the beginning of the prompt indicating
+# the editing mode: emacs, vi command, or vi insertion. The mode strings are
+# user-settable. The default value is `off'. 
+# TODO : Looks like it is not working on OSX
+# set show-mode-in-prompt on
+# set vi-ins-mode-string \1\e[34;1m\2(ins)\1\e[0m\2
+# set vi-cmd-mode-string \1\e[35;1m\2(cmd)\1\e[0m\2

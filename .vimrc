@@ -1,294 +1,35 @@
-" Use vim improved by default and do not try to be backwards compatible.
-set nocompatible
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Use utf-8 by default.
-" Also prefered file format is unix with fallbacks to mac and dos.
-set encoding=utf-8
-set ffs=unix,mac,dos
-set formatoptions-=tc
-
-" Time out on key codes but not mappings.
-" This makes terminal Vim work sanely.
-set notimeout
-set ttimeout
-set ttimeoutlen=10
-
-" Tabular information : 4 spaces
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set smarttab
-
-" Better completion
-set complete=.,w,b,u,t
-set completeopt=longest,menuone,preview
-
-" Cursorline
-" Only show cursorline in the current window and in normal mode.
-augroup cline
-    au!
-    au WinLeave,InsertEnter * set nocursorline
-    au WinEnter,InsertLeave * set cursorline
-augroup END
-
-"
-" File types
-"
-" Don't detect file type
-filetype off
-" *.md, *.markdown
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md setlocal filetype=ghmarkdown
-    au BufNewFile,BufRead *.markdown setlocal filetype=ghmarkdown
-augroup END
-" *.rb
-augroup python
-    au BufRead,BufNewFile *.rb set ai sw=2 sts=2 et tw=72
-    au BufNewFile *.rb set fileformat=unix
-augroup END
-" *.py
-augroup python
-    au BufRead,BufNewFile *.py  set ai sw=4 sts=4 et tw=72
-    au BufNewFile *.py set fileformat=unix
-augroup END
-" *.js
-augroup javascript
-    au BufRead,BufNewFile *.js  set ai sw=2 sts=2 et tw=72
-    au BufNewFile *.js set fileformat=unix
-augroup END
-" *.php
-augroup php
-    au BufRead,BufNewFile *.php  set ai sw=4 sts=4 et tw=72
-    au BufNewFile *.php set fileformat=unix
-augroup END
-" *.html
-augroup html
-    au BufRead,BufNewFile *.html set ai sw=4 sts=4 et tw=72
-    au BufNewFile *.html set fileformat=unix
-augroup END
-" *.json
-augroup json
-    au! BufRead,BufNewFile *.json setfiletype json
-    au BufRead,BufNewFile *.json set ai sw=4 sts=4 et tw=72
-    au BufNewFile *.json set fileformat=unix
-augroup END
-
-"
-" Vundle
-"
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" let Vundle manage Vundle
-Bundle 'gmarik/Vundle.vim'
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-"
-" Available Vundles
-"
-Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
-let g:airline#extensions#tabline#enabled = 1
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'ervandew/supertab'
-Bundle 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'markcornick/vim-vagrant'
-Bundle 'tpope/vim-fugitive'
-Bundle 'pangloss/vim-javascript'
-let g:vim_markdown_folding_disabled=1
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdtree'
-" Make sure that when NT root is changed, Vim's pwd is also updated
-let NERDTreeChDirMode = 2
-let NERDTreeShowLineNumbers = 1
-let NERDTreeAutoCenter = 1
-let NERDTreeShowHidden=1
-Bundle 'fatih/vim-go'
-Bundle 'majutsushi/tagbar'
-Bundle 'kylef/apiblueprint.vim'
-Bundle 'chriskempson/base16-vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'maksimr/vim-jsbeautify'
-Bundle 'tmux-plugins/vim-tmux'
-Bundle 'rust-lang/rust.vim'
-Bundle 'Valloric/YouCompleteMe'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
-"
-" Enable file indentation
-"
-filetype plugin indent on
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
-"
-" Syntax on
-"
 syntax on
-let base16colorspace=256
-set background=dark
-colorscheme base16-default-dark
-let g:solarized_base16 = 1
-let g:airline_theme = 'base16_default'
-let g:airline_powerline_fonts = 1
-let g:promptline_preset = 'full'
-let g:promptline_powerline_symbols = 1
-
-"
-" Mouse support
-"
-set mouse=a
-set mousehide
-set mousefocus
-
-"
-" Searching and Patterns
-"
-set showmatch
-set hlsearch                    " Highlight matches to the search
-set ignorecase                  " Search is case insensitive
-set smartcase                   " Search case sensitive if caps on
-set incsearch                   " Show best match so far
-" nnoremap <space> :noh<return>   " Press <space> to clear highlighted results.
-
-"
-" Display
-"
-set autoindent
-set history=1000
-set lazyredraw                  " Don't repaint when scripts are running
-set ruler                       " Line numbers and column the cursor is on
-set number                      " Show line numbering
-set numberwidth=1               " Use 1 col + 1 space for numbers
-set cursorline                  " Highlight the current line
-set showbreak=↝\ \ \            " Show ↝ if line wraps
-set vb t_vb=                    " No flash bell
-set noerrorbells                " No beeps
-set backspace=indent,eol,start
-set showcmd                     " Show me what I'm typing
-set showmode                    " Show current mode.
-set noswapfile                  " Don't use swapfile
-set nobackup                    " Don't create annoying backup files
-set laststatus=2                " Always show status bar
-set fillchars+=stl:\ ,stlnc:\
-set wrap
-set textwidth=0 wrapmargin=0
-
-" Open NERDTree on startup, when no file has been specified
-autocmd VimEnter * if !argc() | NERDTree | endif
-
-" vim-go configuration
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
-
-" Tagbar configuration
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-
-"
-" Remove trailing whitespaces at save
-"
-autocmd BufWritePre * :%s/\s\+$//e
-
-"
-" Ruler at 78, 120 and 999 columns
-"
-let &colorcolumn="80,".join(range(120,999),",")
-
-"
-" Make sure Vim returns to the same line when you reopen a file.
-"
-augroup line_return
-    au!
-    au BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \     execute 'normal! g`"zvzz' |
-                \ endif
-augroup END
-
-"
-" Leader mapping
-"
-let mapleader = ","
-"
-" ,p calls ControlP plugin
-:map ,p :CtrlP<cr>
-" ,t calls NERDTree plugin
-:map ,t :NERDTreeToggle<cr>
-" ,tb calls TagbarToggle plugin
-:map ,tb ::TagbarToggle<cr>
-" ,ln toggles line numbers
-nnoremap <leader>ln :setlocal number!<cr>
-" ,i toggles invisible characters
-nnoremap <leader>i :set list!<cr>
-" ,tn go to next tab
-nnoremap <leader>tn :tabnext<cr>
-" ,tp go to previous tab
-nnoremap <leader>tp :tabprevious<cr>
-" ,tt create new tab
-nnoremap <leader>tt :tabnew!<cr>
-" ,tw close tab
-nnoremap <leader>tw :tabclose!<cr>
-" ,wu up window
-nnoremap <leader>wu <c-w>k<cr>
-" ,wd down windows
-nnoremap <leader>wd <c-w>j<cr>
-" ,wn next window
-nnoremap <leader>wn <c-w>l<cr>
-" ,wp previous window
-nnoremap <leader>wp <c-w>h<cr>
-" ,<space> clear hightlight until next search
-nnoremap <leader><space> :noh<cr>
-
-" Folding
-vmap <space> zf
-nmap <space> za
-
-" Show type info for the word under your cursor
-au FileType go nmap <Leader>gi <Plug>(go-info)
-
-
-" Open the relevant Godoc for the word under the cursor
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
-" Open the Godoc in browser
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-
-" ,f jsbeautify source code
-au FileType javascript nnoremap <leader>jsb :call JsBeautify()<cr>
