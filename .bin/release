@@ -1,0 +1,22 @@
+#!/bin/bash
+git pull origin
+CURRENT_VERSION="$(git lt)"
+echo "Current version: ${CURRENT_VERSION}"
+SEM_VERSION=( ${CURRENT_VERSION//./ } )
+((SEM_VERSION[2]++))
+NEW_VERSION="${SEM_VERSION[0]}.${SEM_VERSION[1]}.${SEM_VERSION[2]}"
+echo "New version: ${NEW_VERSION}"
+git checkout -b release/${NEW_VERSION} develop
+git log --all --format='%aN <%cE>' | sort -u > CONTRIBUTORS
+echo "${NEW_VERSION}" > VERSION
+git add VERSION CONTRIBUTORS
+git commit -am "Bump ${NEW_VERSION}"
+git checkout master
+git merge --no-ff --no-edit release/${NEW_VERSION}
+git tag -a ${NEW_VERSION} -m ${NEW_VERSION}
+git checkout develop
+git merge --no-ff --no-edit release/${NEW_VERSION}
+git branch -d release/${NEW_VERSION}
+git push origin --all
+git push origin --tags
+bclean
