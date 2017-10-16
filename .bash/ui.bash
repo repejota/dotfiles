@@ -10,7 +10,7 @@ BASE16_SHELL=$HOME/Projects/dotfiles/base16-shell/
 
 # Prompt
 function __psh {
-	PS1="$(psh)"
+    PS1="$(psh --segments=cwd,git,root)"
 }
 export PS1="$(psh)"
 PROMPT_COMMAND=__psh
