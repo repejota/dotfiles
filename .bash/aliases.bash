@@ -7,7 +7,7 @@ alias grep='grep --color=always'
 alias fgrep='fgrep --color=always'
 alias egrep='egrep --color=always'
 
-# Colorize exa
+# Instead of ls i use exa
 alias ls="exa"
 alias l="exa -la"
 

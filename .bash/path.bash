@@ -1,10 +1,10 @@
 # Path configuration
 
-# ~/bin and ./.bin Path
+# ~/.bin and ./.bin Path
 #
 # Useful for custom scripts, sometimes better than bash functions.
-# Just put any script ( python, ruby and php also works ) under ~/bin and
-# it will be available as a normal command.
+# Just put any script ( python, ruby and php also works ) under '.bin' folder 
+# and it will be available as a normal command.
 #
 PATH="~/.bin:$PATH"
 PATH="./bin:$PATH"
@@ -15,8 +15,8 @@ PATH="./bin:$PATH"
 # Tools like gcc or make are under this directory. These tools are provided
 # by Apple once Xcode is installed.
 #
-PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
+PATH="$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin"
 
-PATH="/usr/local/sbin:$PATH"
+PATH="$PATH:/usr/local/sbin"
 
-PATH="/Users/raul/go/bin:$PATH"
+PATH="$PATH:/Users/raul/go/bin"
