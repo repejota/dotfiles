@@ -9,7 +9,7 @@ alias egrep='egrep --color=always'
 
 # Instead of ls i use exa
 alias ls="exa"
-alias l="exa -la"
+alias l="exa -la --git"
 
 # SSH Agent
 alias ssh="ssh -A"
