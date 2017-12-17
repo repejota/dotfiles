@@ -7,7 +7,7 @@
 # and it will be available as a normal command.
 #
 PATH="~/.bin:$PATH"
-PATH="./bin:$PATH"
+PATH="./.bin:$PATH"
 
 # Xcode & Developer tools.
 #
@@ -20,3 +20,7 @@ PATH="$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin"
 PATH="$PATH:/usr/local/sbin"
 
 PATH="$PATH:/Users/raul/go/bin"
+
+PATH="$PATH:/usr/local/google-cloud-sdk/bin"
+
+PATH="$PATH:/usr/local/opt/qt/bin"
