@@ -23,4 +23,4 @@ PATH="$PATH:/Users/raul/go/bin"
 
 PATH="$PATH:/usr/local/google-cloud-sdk/bin"
 
-PATH="$PATH:/usr/local/opt/qt/bin"
+PATH="$PATH:/usr/local/opt/qt/bin:/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin"

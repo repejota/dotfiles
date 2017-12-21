@@ -27,7 +27,6 @@ function get_new_version {
 
 NEW_VERSION=$(get_new_version)
 echo "New version: ${NEW_VERSION}"
-exit 0
 
 $GIT pull origin
 $GIT checkout -b release/${NEW_VERSION} develop
