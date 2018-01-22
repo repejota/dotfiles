@@ -50,6 +50,7 @@
     fl = flow feature
     fs = flow feature start
     ff = flow feature finish
+    fp = flow feature publish
     rl = flow release
     rs = flow release start
     rf = flow release finish
@@ -64,3 +65,8 @@
 
 [push]
 	default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
