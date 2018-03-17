@@ -19,11 +19,6 @@ bclean() {
     git br -d `git br -vv | grep ': gone] ' | awk '{print $1}' | xargs`
 }
 
-gitfs() {
-    git checkout -b feature/$1 develop
-    git flow feature publish feature/$1
-}
-
 ### Docker functions
 
 # Clean docker

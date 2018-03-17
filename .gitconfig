@@ -33,38 +33,20 @@
     # rebase and join last two commits
     j2 = rebase --interactive HEAD~2
 
+    fs= "! git-fs"
+
     # log file history
     # Shows logs and diffs for a single file
     filelog = log -u
-
-    # Oldest
-    # Start of the branch ( sha id )
-    oldest-ancestor = !zsh -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
-    bdiff = !git diff `git oldest-ancestor`..
-    blog = !git log `git oldest-ancestor`..
-    bfiles = !git diff --name-only `git oldest-ancestor`..
-
-    theirs = checkout --theirs
-    ours = checkout --ours
-
-    fl = flow feature
-    fs = flow feature start
-    ff = flow feature finish
-    fp = flow feature publish
-    rl = flow release
-    rs = flow release start
-    rf = flow release finish
 
     develop = checkout develop
     master = checkout master
 
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 
-    pof = !git push origin `git rev-parse --abbrev-ref HEAD` --force
-    fixup = commit --amend -C HEAD
-
 [push]
 	default = simple
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

@@ -33,3 +33,7 @@ source .bash/aliases.bash
 source .bash/functions.bash
 source .bash/completion.bash
 source .bash/ui.bash
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export FLAGS_GETOPT_CMD="$(brew --prefix gnu-getopt)/bin/getopt"
