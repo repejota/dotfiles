@@ -20,10 +20,6 @@
     br = branch -v
     ci = commit -v
     co = checkout
-    dc = diff --word-diff=color --cached
-    df = diff --word-diff=color
-    dt = diff-tree --no-commit-id --name-only -r
-    st = "status -sb"
     ls = log --graph --pretty=format:'%Cred%h%Creset %Cgreen%cr%Creset %Cblue%an%Creset%C(yellow)%d%Creset %s'
     lt = !git describe --tags `git rev-list --tags --max-count=1`
 
@@ -33,12 +29,6 @@
     # rebase and join last two commits
     j2 = rebase --interactive HEAD~2
 
-    fs= "! git-fs"
-
-    # log file history
-    # Shows logs and diffs for a single file
-    filelog = log -u
-
     develop = checkout develop
     master = checkout master
 
@@ -46,9 +36,3 @@
 
 [push]
 	default = simple
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
