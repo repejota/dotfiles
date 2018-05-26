@@ -1,6 +1,7 @@
 # Colorize ls
-colorflag="-G"
-alias ls="ls -la ${colorflag}"
+colorflag="--color=always"
+alias ls="ls -lA ${colorflag}"
+alias l=ls
 
 # Instead of ls use exa
 if [ -x /usr/local/bin/exa ]; then
