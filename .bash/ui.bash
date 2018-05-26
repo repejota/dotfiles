@@ -9,7 +9,7 @@ BASE16_SHELL=~/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Prompt
-if [ -x psh ]; then
+if [ -x $(which psh) ]; then
     function __psh {
         PS1="$(psh --segments=virtualenv,cwd,git,root)"
     }
