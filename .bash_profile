@@ -34,4 +34,6 @@ source .bash/functions.bash
 source .bash/completion.bash
 source .bash/ui.bash
 
-export FLAGS_GETOPT_CMD="$(brew --prefix gnu-getopt)/bin/getopt"
+if [ -x brew ]; then
+    export FLAGS_GETOPT_CMD="$(brew --prefix gnu-getopt)/bin/getopt"
+fi
