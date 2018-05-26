@@ -1,6 +1,5 @@
 # Colorize ls
-colorflag="--color=always"
-alias ls="ls -lA ${colorflag}"
+alias ls="ls -lA"
 alias l=ls
 
 # Instead of ls use exa
