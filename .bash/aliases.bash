@@ -12,5 +12,9 @@ fi
 alias ssh="ssh -A"
 
 # Docker
-alias dc="docker-compose"
-alias dm="docker-machine"
+if [ -x docker-compose ]; theºn
+    alias dc="docker-compose"
+fi
+if [ -x docker-machine ]; theºn
+    alias dm="docker-machine"
+fi
