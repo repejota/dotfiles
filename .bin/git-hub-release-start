@@ -28,18 +28,26 @@ function get_new_version {
 NEW_VERSION=$(get_new_version)
 echo "New version: ${NEW_VERSION}"
 
-
-$GIT pull origin
-$GIT checkout -b release/${NEW_VERSION} develop
-$GIT log --all --format='%aN <%cE>' | sort -u > CONTRIBUTORS
-echo "${NEW_VERSION}" > VERSION
-$GIT add VERSION CONTRIBUTORS
-$GIT commit -am "Bump ${NEW_VERSION}"
 $GIT checkout master
-$GIT merge --no-ff --no-edit release/${NEW_VERSION}
-$GIT tag -a ${NEW_VERSION} -m ${NEW_VERSION}
-$GIT checkout develop
-$GIT merge --no-ff --no-edit release/${NEW_VERSION}
-$GIT branch -d release/${NEW_VERSION}
-$GIT push origin --all
-$GIT push origin --tags
+$GIT pull --rebase --prune origin
+#$GIT submodule --init --recursive
+$GIT checkout -b release/${NEW_VERSION} master
+
+$GIT push --set-upstream origin release/${NEW_VERSION}
+
+$GIT log --all --format='%aN <%cE>' | sort -u > CONTRIBUTORS
+$GIT add CONTRIBUTORS
+$GIT commit -am "Updated CONTRIBUTORS file"
+
+echo "${NEW_VERSION}" > VERSION
+$GIT add VERSION 
+$GIT commit -am "Bump ${NEW_VERSION}"
+
+#$GIT checkout master
+#$GIT merge --no-ff --no-edit release/${NEW_VERSION}
+#$GIT tag -a ${NEW_VERSION} -m ${NEW_VERSION}
+#$GIT checkout develop
+#$GIT merge --no-ff --no-edit release/${NEW_VERSION}
+#$GIT branch -d release/${NEW_VERSION}
+#$GIT push origin --all
+#$GIT push origin --tags

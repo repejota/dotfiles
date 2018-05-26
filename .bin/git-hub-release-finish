@@ -1,0 +1,38 @@
+#!/bin/bash
+
+GIT="git"
+
+if [ ! -d ".git" ]; then
+    echo -e "This is not a git repository."
+    exit 1
+fi
+
+function get_current_version {
+    local NTAGS=$($GIT tag -l | wc -l)
+    if [ $NTAGS = 0 ]; then
+        local CURRENT_VERSION="0.0.0"
+    else
+        local CURRENT_VERSION=$($GIT describe --tags $($GIT rev-list --tags --max-count=1))
+    fi
+    echo "${CURRENT_VERSION}"
+}
+
+function get_new_version {
+    local CURRENT_VERSION=$(get_current_version)
+    local SEM_VERSION=( ${CURRENT_VERSION//./ } )
+    ((SEM_VERSION[2]++))
+    local NEW_VERSION="${SEM_VERSION[0]}.${SEM_VERSION[1]}.${SEM_VERSION[2]}"
+    echo "${NEW_VERSION}"
+}
+
+NEW_VERSION=$(get_new_version)
+echo "New version: ${NEW_VERSION}"
+
+$GIT checkout master
+$GIT pull --rebase --prune origin
+
+$GIT merge --no-ff --no-edit release/${NEW_VERSION}
+$GIT tag -a ${NEW_VERSION} -m ${NEW_VERSION}
+$GIT branch -d release/${NEW_VERSION}
+$GIT push origin --all
+$GIT push origin --tags
