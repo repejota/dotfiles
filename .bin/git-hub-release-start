@@ -38,16 +38,9 @@ $GIT push --set-upstream origin release/${NEW_VERSION}
 $GIT log --all --format='%aN <%cE>' | sort -u > CONTRIBUTORS
 $GIT add CONTRIBUTORS
 $GIT commit -am "Updated CONTRIBUTORS file"
+$GIT push
 
 echo "${NEW_VERSION}" > VERSION
 $GIT add VERSION 
 $GIT commit -am "Bump ${NEW_VERSION}"
-
-#$GIT checkout master
-#$GIT merge --no-ff --no-edit release/${NEW_VERSION}
-#$GIT tag -a ${NEW_VERSION} -m ${NEW_VERSION}
-#$GIT checkout develop
-#$GIT merge --no-ff --no-edit release/${NEW_VERSION}
-#$GIT branch -d release/${NEW_VERSION}
-#$GIT push origin --all
-#$GIT push origin --tags
+$GIT push
